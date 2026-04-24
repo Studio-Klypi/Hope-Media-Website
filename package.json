@@ -1,7 +1,11 @@
 {
   "name": "hope-media-website",
+  "engines": {
+    "node": ">=22"
+  },
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@9.0.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
