@@ -9,6 +9,24 @@ export default defineNuxtConfig({
     "@nuxt/image",
   ],
   devtools: { enabled: true },
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          href: "/favicon.png",
+        },
+        {
+          rel: "shortcut icon",
+          href: "/favicon.png",
+        },
+        {
+          rel: "apple-touch-icon",
+          href: "/favicon.png",
+        },
+      ],
+    },
+  },
   css: ["./tailwind.css"],
   colorMode: {
     classSuffix: "",

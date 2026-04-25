@@ -10,6 +10,7 @@ const { instagram, facebook } = useRuntimeConfig().public.social;
 <template>
   <Page
     name="maintenance"
+    seo-key="maintenance"
     class="w-full flex flex-col items-center gap-4 min-h-dvh justify-center p-6"
   >
     <Logo class="h-5 text-primary" />
