@@ -1,5 +1,6 @@
-export default defineNuxtRouteMiddleware(() => {
-  const maintenance = useRuntimeConfig().public.app.maintenance === "true";
+export default defineNuxtRouteMiddleware((to) => {
+  if (to.path.includes("/maintenance")) return;
+  if (!useRuntimeConfig().public.app.maintenance) return;
 
-  if (maintenance) return navigateTo(useLocalePath()("/maintenance"));
+  return navigateTo(useLocalePath()("/maintenance"));
 });

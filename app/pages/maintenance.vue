@@ -2,6 +2,7 @@
 import { Instagram, Facebook } from "lucide-vue-next";
 import Page from "~/components/composing/Page.vue";
 import Logo from "~/components/branding/Logo.vue";
+import QuoteBlock from "~/components/display/QuoteBlock.vue";
 
 const { instagram, facebook } = useRuntimeConfig().public.social;
 </script>
@@ -11,37 +12,51 @@ const { instagram, facebook } = useRuntimeConfig().public.social;
     name="maintenance"
     class="w-full flex flex-col items-center gap-4 min-h-dvh justify-center p-6"
   >
-    <p>{{ $t("maintenance.title") }}</p>
-    <Logo class="max-h-24 max-w-full" />
+    <Logo class="h-5 text-primary" />
 
-    <p>{{ $t("maintenance.description") }}</p>
-    <div class="flex flex-col @lg/page:flex-row @lg/page:items-center gap-2">
-      <UiButton
-        variant="facebook"
-        as-child
-      >
-        <NuxtLink
-          :to="facebook"
-          target="_blank"
-          external
+    <h1 class="text-4xl @xl/page:text-5xl @md/page:max-w-sm @lg/page:max-w-md font-extrabold text-pretty text-center">
+      {{ $t("maintenance.title") }}
+    </h1>
+
+    <QuoteBlock class="mt-10">
+      <p class="w-full @md/page:w-sm @lg/page:w-md text-lg text-center">
+        “ {{ $t("maintenance.description") }} ”
+        <br><span class="text-base text-muted-foreground">— Damiano Mellone</span>
+      </p>
+    </QuoteBlock>
+
+    <div class="w-full @xs/page:w-auto flex flex-col items-center gap-2 mt-6">
+      <p class="text-sm">
+        {{ $t("maintenance.waiting") }}
+      </p>
+      <div class="w-full @xs/page:w-auto flex flex-col @lg/page:flex-row @lg/page:items-center gap-2">
+        <UiButton
+          variant="facebook"
+          as-child
         >
-          <Facebook />
-          Facebook
-        </NuxtLink>
-      </UiButton>
-      <UiButton
-        variant="instagram"
-        as-child
-      >
-        <NuxtLink
-          :to="instagram"
-          target="_blank"
-          external
+          <NuxtLink
+            :to="facebook"
+            target="_blank"
+            external
+          >
+            <Facebook />
+            Facebook
+          </NuxtLink>
+        </UiButton>
+        <UiButton
+          variant="instagram"
+          as-child
         >
-          <Instagram />
-          Instagram
-        </NuxtLink>
-      </UiButton>
+          <NuxtLink
+            :to="instagram"
+            target="_blank"
+            external
+          >
+            <Instagram />
+            Instagram
+          </NuxtLink>
+        </UiButton>
+      </div>
     </div>
   </Page>
 </template>
