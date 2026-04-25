@@ -27,7 +27,7 @@ const { instagram, facebook } = useRuntimeConfig().public.social;
     </QuoteBlock>
 
     <div class="w-full @xs/page:w-auto flex flex-col items-center gap-2 mt-6">
-      <p class="text-sm">
+      <p class="text-sm text-center">
         {{ $t("maintenance.waiting") }}
       </p>
       <div class="w-full @xs/page:w-auto flex flex-col @lg/page:flex-row @lg/page:items-center gap-2">
