@@ -140,7 +140,7 @@ const { style } = useParallax(0.55);
           </UiButton>
         </header>
 
-        <div class="flex items-center flex-wrap gap-4">
+        <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
           <ArticleCard />
           <ArticleCard />
         </div>
