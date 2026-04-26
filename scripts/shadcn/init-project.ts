@@ -11,7 +11,7 @@ function main() {
     console.log("\n✅ Initialization completed successfully!");
 
     console.log("\n🚨 Starting the linting process...");
-    execSync("yarn lint", {
+    execSync("pnpm lint", {
       stdio: "inherit",
       cwd: process.cwd(),
     });
