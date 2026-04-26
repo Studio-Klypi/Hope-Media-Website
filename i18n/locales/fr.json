@@ -1,12 +1,49 @@
 {
+  "navigation": {
+    "gallery": "Galerie",
+    "blog": "Blog",
+    "book": "Livre d'Or",
+    "contact": "Contact"
+  },
+  "footer": {
+    "caption": "Médiatiquement vous !",
+    "creation": "Créé avec {heart} par {author}."
+  },
   "maintenance": {
     "seo": {
-      "title": "Hope Media - Site en construction",
+      "title": "Site en construction",
       "description": "Hope Media est en construction. Nous reviendrons bientôt avec du lourd."
     },
     "caption": "revient bientôt.",
     "title": "On construit quelque chose de fort.",
     "description": "À plus pour plus d'aventures !",
     "waiting": "En attendant, retrouvez-nous sur nos réseaux sociaux"
+  },
+  "home": {
+    "seo": {
+      "title": "Médiatiquement vous",
+      "description": ""
+    },
+    "hero": {
+      "caption": "Chez Hope Media,",
+      "title": [
+        "On donne la {speech} à ceux qu’on n’{hears}.",
+        "parole",
+        "entend pas"
+      ]
+    },
+    "showcase": {
+      "title": "Hope Media, c'est",
+      "description": "Un média indépendant, libre, sans filtre.Vu en chronique TV, entendu en radio…mais surtout présent sur nos plateformes.\n\nProche des gens. Du vrai. Du brut. Du sincère.\n\nUne équipe jeune, professionnelle et engagée .Des formats qui marquent : Portrait. Sujet. Investigation. Immersion. Découverte. Une ligne éditoriale claire : dire ce que d’autres ne disent pas.\n\nHOPE MEDIA, ce que vous avez à dire mérite d’être entendu."
+    },
+    "job": {
+      "description": "Chez HOPE MEDIA, on ne fait pas du contenu pour faire du bruit. Une ligne éditoriale claire :\n\nDire ce que d’autres ne disent pas. Chaque sujet est pensé pour impacter, faire réagir, faire comprendre, faire avancer.\n\nPortrait, immersion, investigation, découverte…\n\nVotre histoire devient un message fort. Vous avez quelque chose à dire ? Une réalité à montrer ?",
+      "cta": "Commandez votre sujet"
+    },
+    "articles": {
+      "title": "Nos derniers articles",
+      "see-all": "Voir tous les articles",
+      "read-more": "Lire la suite"
+    }
   }
 }
