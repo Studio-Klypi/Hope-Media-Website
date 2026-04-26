@@ -60,5 +60,12 @@
     },
     "title": "Livre d'Or",
     "new-testimonial": "Déposer un témoignage"
+  },
+  "gallery": {
+    "seo": {
+      "title": "",
+      "description": ""
+    },
+    "title": "Galerie"
   }
 }
