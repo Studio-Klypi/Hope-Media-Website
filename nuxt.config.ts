@@ -65,6 +65,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Inter: "100..900",
+      Anton: true,
     },
   },
   i18n: {

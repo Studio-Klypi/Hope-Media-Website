@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -147,7 +150,7 @@
   --color-instagram-5: oklch(0.5316 0.1855 273.99);
 
   --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
-  --font-serif: Source Serif 4, serif;
+  --font-serif: Anton, sans-serif;
   --font-mono: JetBrains Mono, monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -163,6 +166,7 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+  --font-heading: var(--font-sans);
 }
 
 @layer base {
