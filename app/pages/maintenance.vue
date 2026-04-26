@@ -5,6 +5,10 @@ import Logo from "~/components/branding/Logo.vue";
 import QuoteBlock from "~/components/display/QuoteBlock.vue";
 
 const { instagram, facebook } = useRuntimeConfig().public.social;
+
+definePageMeta({
+  layout: "maintenance",
+});
 </script>
 
 <template>
