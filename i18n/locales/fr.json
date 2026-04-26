@@ -52,5 +52,13 @@
       "description": ""
     },
     "title": "Blog"
+  },
+  "book": {
+    "seo": {
+      "title": "",
+      "description": ""
+    },
+    "title": "Livre d'Or",
+    "new-testimonial": "Déposer un témoignage"
   }
 }
