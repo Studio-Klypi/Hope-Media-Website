@@ -45,5 +45,12 @@
       "see-all": "Voir tous les articles",
       "read-more": "Lire la suite"
     }
+  },
+  "blog": {
+    "seo": {
+      "title": "",
+      "description": ""
+    },
+    "title": "Blog"
   }
 }

@@ -4,7 +4,7 @@
 
 <template>
   <NuxtLinkLocale to="/blog">
-    <UiCard class="pt-0 flex-1 min-w-xs @lg/page:max-w-sm overflow-hidden">
+    <UiCard class="pt-0 flex-1 overflow-hidden">
       <NuxtImg
         class="aspect-video object-cover"
         src="/images/home/job.png"
