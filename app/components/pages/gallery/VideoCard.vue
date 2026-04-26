@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const urls = [
-  "/videos/vertical.mov",
   "/videos/home-background.mp4",
 ];
 

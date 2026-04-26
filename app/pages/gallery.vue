@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Page from "~/components/composing/Page.vue";
 import Wrapper from "~/components/composing/Wrapper.vue";
-import TestimonialCard from "~/components/pages/book/TestimonialCard.vue";
 import VideoCard from "~/components/pages/gallery/VideoCard.vue";
 </script>
 
