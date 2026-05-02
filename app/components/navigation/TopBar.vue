@@ -15,7 +15,9 @@ const props = defineProps<ComponentProps>();
         <Logo class="h-5" />
       </NuxtLinkLocale>
 
-      <Menu />
+      <ClientOnly>
+        <Menu />
+      </ClientOnly>
     </Wrapper>
   </header>
 </template>
