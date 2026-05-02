@@ -149,15 +149,15 @@ const submit = form.handleSubmit(values => console.log(values));
               name="accept"
             >
               <UiFormItem class="flex items-center gap-2">
-                <UiFormLabel>
-                  {{ $t("contact.form.fields.accept") }}
-                </UiFormLabel>
                 <UiFormControl>
                   <UiSwitch
                     :model-value="componentField.modelValue"
                     @update:model-value="componentField['onUpdate:modelValue']"
                   />
                 </UiFormControl>
+                <UiFormLabel>
+                  {{ $t("contact.form.fields.accept") }}
+                </UiFormLabel>
               </UiFormItem>
             </UiFormField>
 
