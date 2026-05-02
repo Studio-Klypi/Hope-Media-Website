@@ -26,7 +26,7 @@ const { style } = useParallax(0.55);
       class="p-0!"
     >
       <WavyBackground
-        class="w-full"
+        class="w-full px-6"
         :canvas-style="style"
         container-class="h-[calc(100dvh-8rem)]"
       >
@@ -53,7 +53,7 @@ const { style } = useParallax(0.55);
         <QuoteBlock>
           <video
             ref="videoRef"
-            src="/videos/home-background.mp4"
+            src="/videos/teaser.mp4"
             type="video/mp4"
             autoplay
             :muted
