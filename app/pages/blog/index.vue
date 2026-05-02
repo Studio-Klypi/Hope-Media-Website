@@ -7,7 +7,7 @@ import Wrapper from "~/components/composing/Wrapper.vue";
 <template>
   <Page
     name="blog"
-    class="pt-10 pb-20"
+    class="pt-10 pb-20 px-6"
   >
     <Wrapper class="flex flex-col gap-6">
       <header>
