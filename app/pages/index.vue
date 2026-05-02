@@ -55,6 +55,8 @@ const { style } = useParallax(0.55);
             ref="videoRef"
             src="/videos/teaser.mp4"
             type="video/mp4"
+            preload="auto"
+            playsinline
             autoplay
             :muted
             loop
