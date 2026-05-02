@@ -1,4 +1,8 @@
 {
+  "labels": {
+    "optional": "Facultatif | Facultative"
+  },
+
   "navigation": {
     "gallery": "Galerie",
     "blog": "Blog",
@@ -7,7 +11,7 @@
   },
   "footer": {
     "caption": "Médiatiquement vous !",
-    "creation": "Créé avec {heart} par {author}."
+    "creation": "Créé avec {heart} par {author}"
   },
   "maintenance": {
     "seo": {
@@ -67,5 +71,24 @@
       "description": ""
     },
     "title": "Galerie"
+  },
+  "contact": {
+    "seo": {
+      "title": "",
+      "description": ""
+    },
+    "title": "Contact",
+    "form": {
+      "fields": {
+        "first-name": "Prénom",
+        "last-name": "Nom",
+        "email": "Adresse email",
+        "phone": "Numéro de téléphone",
+        "subject": "Sujet",
+        "message": "Message",
+        "accept": "J'accepte que mes données personnelles soient collectées par Hope Media dans l'unique but de répondre à votre message."
+      },
+      "action": "Envoyer"
+    }
   }
 }
