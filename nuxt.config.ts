@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "shadcn-nuxt",
     "@nuxt/image",
+    "@pinia/nuxt",
   ],
   devtools: { enabled: true },
   app: {
@@ -65,6 +66,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Inter: "100..900",
+      Anton: true,
     },
   },
   i18n: {
