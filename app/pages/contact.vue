@@ -7,6 +7,10 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { z } from "zod";
 import { NAME_REGEX, PHONE_REGEX } from "#shared/constants/regex";
 import { MESSAGE_LENGTH, SUBJECT_LENGTH } from "#shared/constants/lengths";
+import type { SendPayload } from "~/types/states/contact";
+
+const store = useContactStore();
+const { loading } = storeToRefs(store);
 
 const form = useForm({
   validationSchema: toTypedSchema(z.object({
@@ -20,7 +24,13 @@ const form = useForm({
   })),
 });
 const valid = useFormValidation(form);
-const submit = form.handleSubmit(values => console.log(values));
+const submit = form.handleSubmit((values) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const payload = values as any;
+  delete payload.accept;
+
+  store.sendMessage(payload as SendPayload);
+});
 </script>
 
 <template>
@@ -53,6 +63,7 @@ const submit = form.handleSubmit(values => console.log(values));
                   <UiFormControl>
                     <UiInput
                       type="text"
+                      autocomplete="given-name"
                       v-bind="componentField"
                     />
                   </UiFormControl>
@@ -69,6 +80,7 @@ const submit = form.handleSubmit(values => console.log(values));
                   <UiFormControl>
                     <UiInput
                       type="text"
+                      autocomplete="family-name"
                       v-bind="componentField"
                     />
                   </UiFormControl>
@@ -88,6 +100,7 @@ const submit = form.handleSubmit(values => console.log(values));
                   <UiFormControl>
                     <UiInput
                       type="email"
+                      autocomplete="email"
                       v-bind="componentField"
                     />
                   </UiFormControl>
@@ -104,6 +117,7 @@ const submit = form.handleSubmit(values => console.log(values));
                   <UiFormControl>
                     <UiInput
                       type="tel"
+                      autocomplete="tel"
                       v-bind="componentField"
                     />
                   </UiFormControl>
@@ -164,9 +178,10 @@ const submit = form.handleSubmit(values => console.log(values));
             <div class="flex justify-end">
               <UiButton
                 type="submit"
-                :disabled="!valid"
+                :disabled="!valid || loading"
               >
                 {{ $t("contact.form.action") }}
+                <UiSpinner v-if="loading" />
               </UiButton>
             </div>
           </form>
