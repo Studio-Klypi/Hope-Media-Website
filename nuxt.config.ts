@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "shadcn-nuxt",
     "@nuxt/image",
+    "@pinia/nuxt",
   ],
   devtools: { enabled: true },
   app: {
