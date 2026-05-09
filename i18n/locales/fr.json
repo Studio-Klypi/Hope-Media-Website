@@ -90,5 +90,53 @@
       },
       "action": "Envoyer"
     }
+  },
+
+  "admin": {
+    "navigation": {
+      "dashboard": "Tableau de bord",
+      "music": {
+        "start": "Lancer la musique",
+        "stop": "Couper la musique"
+      },
+      "user": {
+        "logout": "Déconnexion"
+      }
+    },
+
+    "audit": {
+      "USER_CREATED": "{author} a créé l'utilisateur {user}.",
+      "LOGGED_IN": "{author} s'est connecté.",
+      "LOGGED_OUT": "{author} s'est déconnecté",
+      "LOGGED_OUT_ALL": "{author} s'est déconnecté de tous les appareils.",
+      "OTP_REQUESTED": "{author} a demandé un OTP.",
+      "OTP_CONSUMED": "{author} a consumé un OTP ({code})."
+    },
+
+    "home": {
+      "title": "Tableau de bord",
+      "welcome": {
+        "title": [
+          "Bonjour {name},",
+          "Bon après-midi {name},",
+          "Bonsoir {name},",
+          "Bonne nuit {name},"
+        ],
+        "description": [
+          "Un petit café pour bien démarrer la journée ?",
+          "Prends une pause pour manger un peu.",
+          "Café tardif pour finir les dernières tâches.",
+          "Il est l'heure d'aller dormir pour récupérer."
+        ]
+      },
+      "stats": {
+        "total-views": "Vues",
+        "new-messages": "Nouveaux messages",
+        "new-testimonials": "Nouveaux témoignages",
+        "validated-testimonials": "Témoignages validés"
+      },
+      "views-evolution": "Évolution des vues",
+      "recent-activity": "Activité récente"
+    }
   }
 }
