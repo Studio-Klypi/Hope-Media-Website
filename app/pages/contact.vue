@@ -25,7 +25,6 @@ const form = useForm({
 });
 const valid = useFormValidation(form);
 const submit = form.handleSubmit((values) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const payload = values as any;
   delete payload.accept;
 
