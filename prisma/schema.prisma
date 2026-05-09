@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  key       String    @unique @default(cuid())
+  firstName String
+  lastName  String
+  email     String    @unique
+  phone     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  otps         OTP[]
+  sessions     Session[]
+  auditEntries AuditEntry[]
+
+  @@map("users")
+}
+
+model OTP {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  code      String    @db.VarChar(6)
+  createdAt DateTime  @default(now())
+  expiresAt DateTime
+  usedAt    DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, code])
+  @@map("otps")
+}
+
+model Session {
+  id        Int       @id @default(autoincrement())
+  token     String    @unique @default(cuid())
+  userId    Int
+  createdAt DateTime  @default(now())
+  expiresAt DateTime
+  revokedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+enum EntryType {
+  CUSTOM_MESSAGE
+
+  LOGGED_IN
+  LOGGED_OUT
+  LOGGED_OUT_ALL
+
+  OTP_REQUESTED
+  OTP_CONSUMED
+
+  USER_CREATED
+}
+
+model AuditEntry {
+  id        Int       @id @default(autoincrement())
+  key       String    @unique @default(cuid())
+  type      EntryType @default(CUSTOM_MESSAGE)
+  userId    Int?
+  data      Json?
+  createdAt DateTime  @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("audit_entries")
+}
