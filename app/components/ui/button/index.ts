@@ -10,6 +10,8 @@ export const buttonVariants = cva(
       variant: {
         default:
           "bg-primary text-primary-foreground hover:bg-primary/90",
+        black:
+          "bg-black text-white hover:bg-black/90",
         facebook: "bg-facebook text-white hover:bg-facebook/90",
         instagram: "bg-linear-to-br from-instagram-1 via-instagram-2 via-instagram-3 via-instagram-4 to-instagram-5 text-white hover:opacity-90",
         destructive:
