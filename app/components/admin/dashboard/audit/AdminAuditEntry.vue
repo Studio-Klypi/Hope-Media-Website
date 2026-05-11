@@ -17,6 +17,7 @@ defineProps<AdminAuditEntryProps>();
             author: entry.user?.firstName,
             user: entry.data?.user?.firstName ?? entry.data?.firstName,
             code: entry.data?.code,
+            title: entry.data?.article?.title ?? entry.data?.article?.old?.title,
           }) }}
         </template>
         <UiSkeleton
