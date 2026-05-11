@@ -7,7 +7,7 @@ export interface DashboardState {
       public: number;
     };
   };
-  graph: any;
+  graph: Listed<Record<string, number>>;
   loading: {
     stats: boolean;
     graph: boolean;
@@ -23,7 +23,7 @@ export const defaults: DashboardState = {
       public: -1,
     },
   },
-  graph: null,
+  graph: [],
   loading: {
     stats: false,
     graph: false,

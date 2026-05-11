@@ -6,3 +6,7 @@ export function requireAuth(event: HttpEvent) {
 
   return event.context.user;
 }
+
+export function softRequireAuth(event: HttpEvent) {
+  return event.context.user ?? null;
+}
