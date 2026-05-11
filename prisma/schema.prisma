@@ -6,6 +6,7 @@ datasource db {
   provider = "postgresql"
 }
 
+// AUTHENTICATION
 model User {
   id        Int       @id @default(autoincrement())
   key       String    @unique @default(cuid())
@@ -20,6 +21,7 @@ model User {
   otps         OTP[]
   sessions     Session[]
   auditEntries AuditEntry[]
+  articles     Article[]
 
   @@map("users")
 }
@@ -51,6 +53,7 @@ model Session {
   @@map("sessions")
 }
 
+// SYSTEM TRACKING
 enum EntryType {
   CUSTOM_MESSAGE
 
@@ -62,6 +65,12 @@ enum EntryType {
   OTP_CONSUMED
 
   USER_CREATED
+
+  ARTICLE_CREATED
+  ARTICLE_UPDATED
+  ARTICLE_PUBLISHED
+  ARTICLE_ARCHIVED
+  ARTICLE_RESTORED
 }
 
 model AuditEntry {
@@ -75,4 +84,43 @@ model AuditEntry {
   user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   @@map("audit_entries")
+}
+
+// BLOG
+enum ArticleStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model Article {
+  id          Int           @id @default(autoincrement())
+  authorId    Int?
+  slug        String        @unique
+  banner      String?
+  status      ArticleStatus @default(DRAFT)
+  title       String
+  content     String        @db.Text()
+  excerpt     String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  publishedAt DateTime?
+  archivedAt  DateTime?
+
+  author User? @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  articleViews ArticleView[]
+
+  @@map("articles")
+}
+
+model ArticleView {
+  id        String   @id @default(cuid())
+  ip        String
+  articleId Int
+  createdAt DateTime @default(now())
+
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@map("article_views")
 }
