@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxt/image",
     "@pinia/nuxt",
+    "@nuxtjs/mdc",
   ],
   devtools: { enabled: true },
   app: {

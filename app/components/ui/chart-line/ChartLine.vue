@@ -82,8 +82,8 @@ const tooltipTemplate = componentToString(
   >
     <VisXYContainer :data="data">
       <VisArea
-        v-if="showArea"
         v-for="(category, i) in categories"
+        v-if="showArea"
         :key="`area-${category}`"
         :x="x"
         :y="getY(category)"
