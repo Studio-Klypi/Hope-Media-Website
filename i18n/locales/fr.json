@@ -92,6 +92,64 @@
     }
   },
 
+  "presentation-doc": {
+    "seo": {
+      "title": "Parlons de vous !",
+      "description": "Chez Hope Media, nous sommes engagés à aborder les sujets dont personnes ne parle. Vous avez quelque chose à dire ? Voici ce qu'on fait."
+    },
+    "title": [
+      "Nous existons pour {highlight} !",
+      "parler de vous"
+    ],
+    "description": [
+      "Vous nous avez connu par notre succès à la {tv} ou à la {radio}.\n\nNous allons à la rencontre de personnes exceptionnelles parce que vous êtes {amazing}.\n\nNotre live nous motive à parler de vous et de {no-talk}.",
+      "télévision",
+      "radio",
+      "exceptionnels",
+      "ce que les autres ne disent pas"
+    ],
+    "tagline": [
+      "Parce que Hope Media, c’est avant tout parler de vous, et pour que cela continue, {need-you} !",
+      "on a besoin de vous"
+    ],
+    "services": {
+      "title": "Nos prestations pour vous",
+      "face-cam": {
+        "title": "Tournages face caméra",
+        "description": "Captation professionnelle en studio sur fond noir avec une mise en lumière cinématographique"
+      },
+      "photo-shooting": {
+        "title": "Shooting photo",
+        "description": "Shooting photo pour des visuels impactants et une image qui vous ressemble"
+      },
+      "interviews": {
+        "title": "Interviews",
+        "description": "Interview profondes et authentiques qui mettent en lumière votre parcours et vos valeurs"
+      },
+      "teasers-and-reels": {
+        "title": "Teasers et réels",
+        "description": "Création de teasers et de réels courts, percutants et adaptés aux réseaux sociaux"
+      },
+      "impact": {
+        "title": "Réels impacts",
+        "description": "Des contenus qui performent comme nos derniers sujet à plus de 24k vues"
+      }
+    },
+    "cta": {
+      "title": "Dites-nous tout de suite",
+      "description": "Chaque projet est unique.\nDiscutons ensemble de vos objectifs pour construire une collaboration sur-mesure et efficace",
+      "action": "Contactez-nous",
+      "caption": "et parlons de votre projet"
+    },
+    "footer": {
+      "seen-on": "Vu sur"
+    },
+    "socials": {
+      "france-3": "France 3",
+      "top-music": "TopMusic"
+    }
+  },
+
   "admin": {
     "navigation": {
       "dashboard": "Tableau de bord",
