@@ -2,6 +2,11 @@
   "labels": {
     "optional": "Facultatif | Facultative"
   },
+  "toasts": {
+    "error": {
+      "default": "Une erreur est survenue."
+    }
+  },
 
   "navigation": {
     "gallery": "Galerie",
@@ -168,7 +173,12 @@
       "LOGGED_OUT": "{author} s'est déconnecté",
       "LOGGED_OUT_ALL": "{author} s'est déconnecté de tous les appareils.",
       "OTP_REQUESTED": "{author} a demandé un OTP.",
-      "OTP_CONSUMED": "{author} a consumé un OTP ({code})."
+      "OTP_CONSUMED": "{author} a consumé un OTP ({code}).",
+      "ARTICLE_CREATED": "{author} a créé l'article \"{title}\".",
+      "ARTICLE_UPDATED": "{author} a modifié l'article \"{title}\".",
+      "ARTICLE_PUBLISHED": "{author} a publié l'article \"{title}\".",
+      "ARTICLE_ARCHIVED": "{author} a archivé l'article \"{title}\".",
+      "ARTICLE_RESTORED": "{author} a restauré l'article \"{title}\"."
     },
 
     "home": {
@@ -193,7 +203,10 @@
         "new-testimonials": "Nouveaux témoignages",
         "validated-testimonials": "Témoignages validés"
       },
-      "views-evolution": "Évolution des vues",
+      "views-evolution": {
+        "title": "Évolution des vues",
+        "description": "Données sur 30 jours glissants"
+      },
       "recent-activity": "Activité récente"
     }
   }

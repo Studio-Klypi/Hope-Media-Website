@@ -1,34 +1,40 @@
 <script setup lang="ts">
+import { formatDate } from "date-fns";
+import * as locales from "date-fns/locale";
+
+const { locale } = useI18n();
 const store = useDashboardStore();
 const { graph, loading } = storeToRefs(store);
 
 store.loadGraph();
+
+const xFormatter = (i: number) => {
+  const day = graph.value[i]?.day;
+  if (!day) return "";
+  return formatDate(day, "dd MMM yyyy", { locale: locales[locale.value] });
+};
 </script>
 
 <template>
   <UiCard class="@2xl/page:col-span-2">
     <UiCardHeader class="flex justify-between">
-      <UiCardTitle>{{ $t("admin.home.views-evolution") }}</UiCardTitle>
+      <div class="grid gap-1 5">
+        <UiCardTitle>{{ $t("admin.home.views-evolution.title") }}</UiCardTitle>
+        <UiCardDescription>{{ $t("admin.home.views-evolution.description") }}</UiCardDescription>
+      </div>
 
       <UiSpinner v-if="loading.graph" />
     </UiCardHeader>
 
     <UiCardContent>
       <UiChartLine
-        :data="[
-          { date: 'Lun', line1: 10 },
-          { date: 'Mar', line1: 8 },
-          { date: 'Mer', line1: 43 },
-          { date: 'Jeu', line1: 21 },
-          { date: 'Ven', line1: 53 },
-          { date: 'Sam', line1: 22 },
-          { date: 'Dim', line1: 0 },
-        ]"
+        :data="graph"
         :config="{
-          line1: { label: 'Vues', color: 'hsl(var(--chart-1))' },
+          count: { label: 'Vues', color: 'hsl(var(--chart-1))' },
         }"
-        index="date"
-        :categories="['line1']"
+        index="day"
+        :categories="['count']"
+        :x-formatter="xFormatter"
         show-area
       />
     </UiCardContent>
