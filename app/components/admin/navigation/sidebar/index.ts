@@ -1,5 +1,5 @@
 import type { LucideIcon } from "@lucide/vue";
-import { Users, History, ShoppingBag, Video, Newspaper, Star, LayoutDashboard } from "lucide-vue-next";
+import { Users, History, MessageCircle, ShoppingBag, Video, Newspaper, Star, LayoutDashboard } from "lucide-vue-next";
 
 export const groups: Listed<AdminSidebarGroupProps> = [
   {
@@ -42,6 +42,16 @@ export const groups: Listed<AdminSidebarGroupProps> = [
       },
     ],
   }, */
+  {
+    label: "admin.navigation.contact.label",
+    items: [
+      {
+        icon: MessageCircle,
+        label: "admin.navigation.contact.messages",
+        to: "/admin/web-contact",
+      },
+    ],
+  },
   {
     label: "admin.navigation.admin.label",
     items: [

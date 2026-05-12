@@ -56,6 +56,23 @@
             "error": "La restauration de l'article a rencontré une erreur."
           }
         }
+      },
+      "web-contact": {
+        "reply": {
+          "loading": "Envoi de votre réponse...",
+          "success": "Votre réponse a été envoyée à {contact-email}.",
+          "error": "L'envoi de votre réponse a rencontré une erreur."
+        },
+        "ignore": {
+          "loading": "Ignorance du message...",
+          "success": "Vous avez ignoré le message de {contact-email}.",
+          "error": "L'ignorance du message a rencontré une erreur."
+        },
+        "block": {
+          "loading": "Blocage de l'émetteur...",
+          "success": "Vous avez bloqué {contact-email}.",
+          "error": "Le blocage de l'émetteur a rencontré une erreur."
+        }
       }
     }
   },
@@ -214,6 +231,10 @@
         "label": "Portfolio",
         "blog": "Blog"
       },
+      "contact": {
+        "label": "Messagerie",
+        "messages": "Messages"
+      },
       "admin": {
         "label": "Administration",
         "users": "Utilisateurs",
@@ -242,9 +263,9 @@
       "ARTICLE_RESTORED": "{author} a restauré l'article \"{title}\".",
       "ARTICLE_DELETED": "{author} a supprimé l'article \"{title}\".",
       "WEB_MESSAGE_RECEIVED": "Un message a été envoyé par {email}.",
-      "WEB_MESSAGE_REPLYED": "{author} a répondu à {contact-email} (#{contact-id}).",
-      "WEB_MESSAGE_IGNORE": "{author} a ignoré le message de {contact-email} (#{contact-id}).",
-      "WEB_SENDER_BLOCKED": "{author} a bloqué {contact-email} (#{contact-id})."
+      "WEB_MESSAGE_REPLYED": "{author} a répondu à {contact-email}.",
+      "WEB_MESSAGE_IGNORE": "{author} a ignoré le message de {contact-email}.",
+      "WEB_SENDER_BLOCKED": "{author} a bloqué {contact-email}."
     },
 
     "home": {
