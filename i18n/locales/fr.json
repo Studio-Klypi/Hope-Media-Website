@@ -240,7 +240,11 @@
       "ARTICLE_PUBLISHED": "{author} a publié l'article \"{title}\".",
       "ARTICLE_ARCHIVED": "{author} a archivé l'article \"{title}\".",
       "ARTICLE_RESTORED": "{author} a restauré l'article \"{title}\".",
-      "ARTICLE_DELETED": "{author} a supprimé l'article \"{title}\"."
+      "ARTICLE_DELETED": "{author} a supprimé l'article \"{title}\".",
+      "WEB_MESSAGE_RECEIVED": "Un message a été envoyé par {email}.",
+      "WEB_MESSAGE_REPLYED": "{author} a répondu à {contact-email} (#{contact-id}).",
+      "WEB_MESSAGE_IGNORE": "{author} a ignoré le message de {contact-email} (#{contact-id}).",
+      "WEB_SENDER_BLOCKED": "{author} a bloqué {contact-email} (#{contact-id})."
     },
 
     "home": {
