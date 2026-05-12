@@ -1,0 +1,42 @@
+enum EntryType {
+  CUSTOM_MESSAGE
+
+  LOGGED_IN
+  LOGGED_OUT
+  LOGGED_OUT_ALL
+
+  OTP_REQUESTED
+  OTP_CONSUMED
+
+  USER_CREATED
+
+  ARTICLE_CREATED
+  ARTICLE_UPDATED
+  ARTICLE_PUBLISHED
+  ARTICLE_UNPUBLISHED
+  ARTICLE_ARCHIVED
+  ARTICLE_RESTORED
+  ARTICLE_DELETED
+
+  WEB_MESSAGE_RECEIVED
+  WEB_MESSAGE_REPLYED
+  WEB_MESSAGE_IGNORE
+  WEB_SENDER_BLOCKED
+
+  TESTIMONIAL_SENT
+  TESTIMONIAL_APPROVED
+  TESTIMONIAL_REJECTED
+}
+
+model AuditEntry {
+  id        Int       @id @default(autoincrement())
+  key       String    @unique @default(cuid())
+  type      EntryType @default(CUSTOM_MESSAGE)
+  userId    Int?
+  data      Json?
+  createdAt DateTime  @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("audit_entries")
+}
