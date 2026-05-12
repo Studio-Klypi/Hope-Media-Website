@@ -210,6 +210,15 @@
   "admin": {
     "navigation": {
       "dashboard": "Tableau de bord",
+      "portfolio": {
+        "label": "Portfolio",
+        "blog": "Blog"
+      },
+      "admin": {
+        "label": "Administration",
+        "users": "Utilisateurs",
+        "audit-trail": "Historique des actions"
+      },
       "music": {
         "start": "Lancer la musique",
         "stop": "Couper la musique"
@@ -301,6 +310,13 @@
           }
         }
       }
+    },
+    "audit-trail": {
+      "seo": {
+        "title": "Historique des actions",
+        "description": "Fliquez vos utilisateurs et retrouvez toutes leurs actions dans l'historique des actions."
+      },
+      "title": "Historique des actions"
     }
   }
 }

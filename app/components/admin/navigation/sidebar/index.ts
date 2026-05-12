@@ -1,5 +1,5 @@
 import type { LucideIcon } from "@lucide/vue";
-import { Users, ShoppingBag, Video, Newspaper, Star, LayoutDashboard } from "lucide-vue-next";
+import { Users, History, ShoppingBag, Video, Newspaper, Star, LayoutDashboard } from "lucide-vue-next";
 
 export const groups: Listed<AdminSidebarGroupProps> = [
   {
@@ -13,7 +13,7 @@ export const groups: Listed<AdminSidebarGroupProps> = [
     ],
   },
   {
-    label: "Portfolio",
+    label: "admin.navigation.portfolio.label",
     items: [
       /* {
         icon: Video,
@@ -22,7 +22,7 @@ export const groups: Listed<AdminSidebarGroupProps> = [
       }, */
       {
         icon: Newspaper,
-        label: "Blog",
+        label: "admin.navigation.portfolio.blog",
         to: "/admin/blog",
       },
       /* {
@@ -42,16 +42,26 @@ export const groups: Listed<AdminSidebarGroupProps> = [
       },
     ],
   }, */
-  /* {
-    label: "Gestion",
+  {
+    label: "admin.navigation.admin.label",
     items: [
-      {
+      /* {
         icon: Users,
-        label: "Clients",
-        to: "/admin/clients",
+        label: "admin.navigation.admin.users",
+        to: "/admin/users",
+      }, */
+      /* {
+        icon: Users,
+        label: "admin.navigation.admin.customers",
+        to: "/admin/customers",
+      }, */
+      {
+        icon: History,
+        label: "admin.navigation.admin.audit-trail",
+        to: "/admin/audit-trail",
       },
     ],
-  }, */
+  },
 ];
 
 export interface AdminSidebarButtonProps {
