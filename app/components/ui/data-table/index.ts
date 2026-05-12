@@ -5,7 +5,7 @@ export { default as DataTable } from "./DataTable.vue";
 export interface DataTableProps<TD, TV> {
   columns: Listed<ColumnDef<TD, TV>>;
   data: Listed<TD>;
-  rowAction?: () => Promise<void> | void;
+  rowAction?: (row: TD) => Promise<void> | void;
   rowLink?: string;
   rowLinkReplacements?: Record<string, keyof TD>;
 }
