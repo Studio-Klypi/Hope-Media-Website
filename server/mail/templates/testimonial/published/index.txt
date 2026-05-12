@@ -1,0 +1,13 @@
+Bonjour {{firstName}},
+
+Votre témoignage a été examiné et publié sur notre site. Merci encore pour votre confiance et le temps que vous nous avez accordé.
+
+---
+Votre témoignage publié :
+
+{{content}}
+---
+
+Si vous souhaitez que votre témoignage soit retiré, contactez-nous à tout moment.
+
+© Hope Media — Tous droits réservés
