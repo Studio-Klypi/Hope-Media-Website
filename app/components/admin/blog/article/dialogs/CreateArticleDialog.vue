@@ -2,7 +2,7 @@
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { z } from "zod";
-import type { CreateArticleDialogProps } from "~/components/admin/dashboard/blog/article/dialogs/index";
+import type { CreateArticleDialogProps } from "~/components/admin/blog/article/dialogs/index";
 
 withDefaults(defineProps<CreateArticleDialogProps>(), {
   trigger: false,

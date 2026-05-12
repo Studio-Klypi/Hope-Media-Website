@@ -2,8 +2,8 @@ import type { ColumnDef } from "@tanstack/vue-table";
 import type { Article } from "~/types/states/blog";
 import { formatDate } from "date-fns";
 import * as locales from "date-fns/locale";
-import ArticleStatusBadge from "~/components/admin/dashboard/blog/article/ArticleStatusBadge.vue";
-import ArticleActions from "~/components/admin/dashboard/blog/article/ArticleActions.vue";
+import ArticleStatusBadge from "~/components/admin/blog/article/ArticleStatusBadge.vue";
+import ArticleActions from "~/components/admin/blog/article/ArticleActions.vue";
 
 export interface ArticleProps {
   article: Article;

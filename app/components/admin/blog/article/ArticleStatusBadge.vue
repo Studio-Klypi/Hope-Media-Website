@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArticleProps } from "~/components/admin/dashboard/blog";
+import type { ArticleProps } from "~/components/admin/blog";
 import { ArticleStatus } from "@prisma/client";
 import type { BadgeVariants } from "~/components/ui/badge";
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { columns } from "~/components/admin/dashboard/blog/index";
+import { columns } from "~/components/admin/blog/index";
 
 const store = useBlogStore();
 const { articles } = storeToRefs(store);

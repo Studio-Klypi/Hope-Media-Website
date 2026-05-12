@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Newspaper, Search, Plus } from "@lucide/vue";
 import Page from "~/components/composing/Page.vue";
-import ArticlesTable from "~/components/admin/dashboard/blog/ArticlesTable.vue";
-import CreateArticleDialog from "~/components/admin/dashboard/blog/article/dialogs/CreateArticleDialog.vue";
+import ArticlesTable from "~/components/admin/blog/ArticlesTable.vue";
+import CreateArticleDialog from "~/components/admin/blog/article/dialogs/CreateArticleDialog.vue";
 
 const store = useBlogStore();
 const { articles, loading, hasLoaded } = storeToRefs(store);
