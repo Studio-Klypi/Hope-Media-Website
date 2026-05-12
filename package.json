@@ -16,7 +16,7 @@
     "nuxt:add": "tsx scripts/nuxt/add-module.ts",
     "shadcn:init": "tsx scripts/shadcn/init-project.ts",
     "shadcn:add": "tsx scripts/shadcn/add-components.ts",
-    "db:migrate": "sh -c 'prisma migrate dev --name \"$1\" & prisma generate' --",
+    "db:migrate": "sh -c 'prisma migrate dev --name \"$1\" ; prisma generate' --",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio"
   },
