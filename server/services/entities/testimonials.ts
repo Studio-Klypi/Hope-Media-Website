@@ -34,7 +34,7 @@ export class TestimonialEngine {
       await sendMail({
         to: testimonial.email,
         subject: "Nous avons bien reçu votre témoignage",
-        template: "testimonials/received/index",
+        template: "testimonial/received/index",
         variables: {
           firstName: testimonial.firstName,
           contentHtml: await marked.parse(testimonial.content),
@@ -63,6 +63,17 @@ export class TestimonialEngine {
         type: EntryType.TESTIMONIAL_APPROVED,
         data: {
           testimonial,
+        },
+      });
+
+      await sendMail({
+        to: testimonial.email,
+        subject: "Votre témoignage est en ligne !",
+        template: "testimonial/published/index",
+        variables: {
+          firstName: testimonial.firstName,
+          contentHtml: await marked.parse(testimonial.content),
+          content: testimonial.content,
         },
       });
 
