@@ -18,11 +18,12 @@ model User {
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
 
-  otps         OTP[]
-  sessions     Session[]
-  auditEntries AuditEntry[]
-  articles     Article[]
-  webBlocks    WebBlock[]
+  otps                  OTP[]
+  sessions              Session[]
+  auditEntries          AuditEntry[]
+  articles              Article[]
+  webBlocks             WebBlock[]
+  processedTestimonials Testimonial[]
 
   @@map("users")
 }
@@ -79,6 +80,10 @@ enum EntryType {
   WEB_MESSAGE_REPLYED
   WEB_MESSAGE_IGNORE
   WEB_SENDER_BLOCKED
+
+  TESTIMONIAL_SENT
+  TESTIMONIAL_APPROVED
+  TESTIMONIAL_REJECTED
 }
 
 model AuditEntry {
@@ -167,4 +172,25 @@ model WebBlock {
   source WebContact? @relation(fields: [sourceId], references: [id], onDelete: SetNull)
 
   @@map("web_blocks")
+}
+
+// TESTIMONIALS
+model Testimonial {
+  id          String    @id @default(cuid())
+  processedBy Int?
+  firstName   String
+  lastName    String
+  email       String
+  role        String
+  company     String
+  content     String
+  ranking     Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+  rejectedAt  DateTime?
+
+  processor User? @relation(fields: [processedBy], references: [id], onDelete: SetNull)
+
+  @@map("testimonials")
 }
