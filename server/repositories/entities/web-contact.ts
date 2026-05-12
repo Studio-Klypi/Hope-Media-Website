@@ -5,10 +5,22 @@ export class WebContactRepository {
   async create(payload: CreateWebContact) {
     return prisma.webContact.create({
       data: payload,
+      include: {
+        replies: true,
+      },
     });
   }
 
   async reply(id: string, payload: CreateWebContactReply, user: UserEntity) {
+    const storedContact = await prisma.webContact.findUniqueOrThrow({
+      where: {
+        id,
+        replyTo: null,
+        repliedAt: null,
+        ignoredAt: null,
+        blockedAt: null,
+      },
+    });
     return prisma.webContact.update({
       where: {
         id,
@@ -19,14 +31,20 @@ export class WebContactRepository {
       },
       data: {
         repliedAt: new Date(),
-        reply: {
-          create: {
-            ...payload,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-          },
+        replies: {
+          create: [
+            {
+              ...payload,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+              subject: `Re: ${storedContact.subject}`,
+            },
+          ],
         },
+      },
+      include: {
+        replies: true,
       },
     });
   }
@@ -41,6 +59,9 @@ export class WebContactRepository {
       },
       data: {
         ignoredAt: new Date(),
+      },
+      include: {
+        replies: true,
       },
     });
   }
@@ -71,11 +92,7 @@ export class WebContactRepository {
         },
       },
       include: {
-        reply: {
-          include: {
-            blocked: true,
-          },
-        },
+        replies: true,
         blocked: true,
       },
     });
@@ -83,7 +100,12 @@ export class WebContactRepository {
 
   async getAll() {
     const total = await prisma.webContact.count();
-    const data = await prisma.webContact.findMany();
+    const data = await prisma.webContact.findMany({
+      include: {
+        replies: true,
+        blocked: true,
+      },
+    });
 
     return {
       data,
