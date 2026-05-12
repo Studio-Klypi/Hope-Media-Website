@@ -9,10 +9,18 @@ const props = defineProps<{
 </script>
 
 <template>
-  <MDC
-    :value="content"
-    :class="cn('editor-renderer', props.class)"
-  />
+  <Suspense>
+    <MDC
+      :value="content"
+      :class="cn('editor-renderer', props.class)"
+    />
+
+    <template #fallback>
+      <div class="h-16 grid place-items-center">
+        <UiSpinner />
+      </div>
+    </template>
+  </Suspense>
 </template>
 
 <style>
