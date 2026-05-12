@@ -46,6 +46,7 @@ interface SendMailOptions {
   to: string | string[];
   subject: string;
   template: string;
+  replyTo?: string | string[];
   variables?: Record<string, string>;
 }
 
@@ -53,9 +54,12 @@ export async function verifyMailer() {
   return transporter().verify();
 }
 
-export async function sendMail({ to, subject, template, variables }: SendMailOptions) {
+export async function sendMail({ to, subject, template, variables, replyTo }: SendMailOptions) {
   const { html, text } = await renderTemplate(template, variables);
   const config = useRuntimeConfig().mail;
+
+  let reply = [config.reply.to];
+  if (replyTo) reply = Array.isArray(replyTo) ? replyTo : [replyTo];
 
   return transporter().sendMail({
     from: `"${config.from.name}" <${config.from.address}>`,
@@ -63,6 +67,6 @@ export async function sendMail({ to, subject, template, variables }: SendMailOpt
     subject,
     html,
     text,
-    replyTo: config.reply.to,
+    replyTo: reply,
   });
 }
