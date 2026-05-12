@@ -8,30 +8,31 @@ export const groups: Listed<AdminSidebarGroupProps> = [
         icon: LayoutDashboard,
         label: "admin.navigation.dashboard",
         to: "/admin",
+        exact: true,
       },
     ],
   },
-  /* {
+  {
     label: "Portfolio",
     items: [
-      {
+      /* {
         icon: Video,
         label: "Galerie vidéo",
         to: "/admin/video-gallery",
-      },
+      }, */
       {
         icon: Newspaper,
         label: "Blog",
         to: "/admin/blog",
       },
-      {
+      /* {
         icon: Star,
         label: "Témoignages",
         to: "/admin/testimonials",
-      },
+      }, */
     ],
   },
-  {
+  /* {
     label: "Boutique",
     items: [
       {
@@ -40,8 +41,8 @@ export const groups: Listed<AdminSidebarGroupProps> = [
         to: "/admin/packs",
       },
     ],
-  },
-  {
+  }, */
+  /* {
     label: "Gestion",
     items: [
       {
@@ -57,6 +58,7 @@ export interface AdminSidebarButtonProps {
   icon: LucideIcon;
   label: string;
   to: string;
+  exact?: boolean;
 }
 
 export interface AdminSidebarGroupProps {
@@ -65,5 +67,6 @@ export interface AdminSidebarGroupProps {
     icon: LucideIcon;
     label: string;
     to: string;
+    exact?: boolean;
   }>;
 }
