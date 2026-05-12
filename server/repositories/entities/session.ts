@@ -1,7 +1,7 @@
 import { prisma } from "#server/utils/prisma";
 
 export class SessionRepository {
-  private VALIDITY = 1000 * 60 * 60;
+  private VALIDITY = 1000 * 60 * 60 * 24 * 14; // Valid for 2 weeks
 
   async create(userId: number) {
     const now = new Date();
