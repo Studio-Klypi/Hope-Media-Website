@@ -70,18 +70,6 @@ export class ArticleRepository {
     return prisma.$queryRaw<Listed<{ day: Date; count: number }>>`SELECT DATE("createdAt") as day, COUNT(*)::int as count FROM "article_views" WHERE "createdAt" >= ${start} AND "createdAt" <= ${end} GROUP BY day ORDER BY day ASC`;
   }
 
-  async getArticleViews(id: number, start: Date, end: Date) {
-    return prisma.articleView.findMany({
-      where: {
-        articleId: id,
-        createdAt: {
-          gte: start,
-          lte: end,
-        },
-      },
-    });
-  }
-
   async getAll(admin: boolean = false) {
     return prisma.article.findMany({
       where: {
@@ -94,6 +82,14 @@ export class ArticleRepository {
         createdAt: "desc",
       },
     });
+
+    return {
+      data,
+      meta: {
+        total,
+        count: data.length,
+      },
+    };
   }
 
   async get(_slug: string, admin: boolean = false) {
@@ -121,12 +117,6 @@ export class ArticleRepository {
     });
   }
 
-  async getById(id: number) {
-    return prisma.article.findUniqueOrThrow({
-      where: { id },
-    });
-  }
-
   async publish(id: number) {
     return prisma.article.update({
       where: {
@@ -136,7 +126,31 @@ export class ArticleRepository {
       },
       data: {
         status: ArticleStatus.PUBLISHED,
-        archivedAt: new Date(),
+        publishedAt: new Date(),
+      },
+      include: {
+        author: true,
+        _count: {
+          select: {
+            articleViews: true,
+          },
+        },
+      },
+    });
+  }
+
+  async convertToDraft(id: number) {
+    return prisma.article.update({
+      where: {
+        id,
+        status: ArticleStatus.PUBLISHED,
+        publishedAt: {
+          not: null,
+        },
+      },
+      data: {
+        status: ArticleStatus.DRAFT,
+        publishedAt: null,
       },
       include: {
         author: true,
@@ -198,6 +212,17 @@ export class ArticleRepository {
           select: {
             articleViews: true,
           },
+        },
+      },
+    });
+  }
+
+  async delete(id: number) {
+    return prisma.article.delete({
+      where: {
+        id,
+        status: {
+          not: ArticleStatus.PUBLISHED,
         },
       },
     });
