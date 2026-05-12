@@ -19,3 +19,11 @@ export enum HttpCode {
 
   INTERNAL_SERVER_ERROR = 500,
 }
+
+export interface ApiListResponse<T = any> {
+  data: Listed<T>;
+  meta: {
+    total: number;
+    count: number;
+  };
+}
