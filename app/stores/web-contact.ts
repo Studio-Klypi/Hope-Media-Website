@@ -1,5 +1,4 @@
-import { defaults, type WebContactState } from "~/types/states/web-contact";
-import type { WebContact } from "@prisma/client";
+import { defaults, type WebContact, type WebContactState } from "~/types/states/web-contact";
 import { toast } from "vue-sonner";
 
 export const useWebContactStore = defineStore("web-contact", {
@@ -28,39 +27,55 @@ export const useWebContactStore = defineStore("web-contact", {
     },
 
     async reply(id: string, message: string) {
-      toast.promise($fetch<WebContact>(`/api/web-contact/${id}/reply`, {
-        method: "POST",
-        body: {
-          message,
-        },
-      }), {
-        loading: () => this.translate("toasts.admin.web-contact.reply.loading"),
-        success: (message: WebContact) => {
-          this.messages = this.messages.map(msg => msg.id === message.id ? { ...message } : msg);
-          return this.translate("toasts.admin.web-contact.reply.success", { "contact-email": message.email });
-        },
-        error: () => this.translate("toasts.admin.web-contact.reply.error"),
-      });
+      this.loading.replying = true;
+
+      try {
+        const reply = await $fetch<WebContact>(`/api/web-contact/${id}/reply`, {
+          method: "POST",
+          body: {
+            message,
+          },
+        });
+
+        this.messages = this.messages.map(msg => msg.id === reply.id ? { ...reply } : msg);
+        toast.success(this.translate("toasts.admin.web-contact.reply.success", { "contact-email": reply.email }));
+      }
+      catch {
+        toast.error(this.translate("toasts.admin.web-contact.reply.error"));
+      }
+      finally {
+        this.loading.replying = false;
+      }
     },
     async ignore(id: string) {
       toast.promise($fetch<WebContact>(`/api/web-contact/${id}/ignore`, { method: "PATCH" }), {
         loading: () => this.translate("toasts.admin.web-contact.ignore.loading"),
         success: (message: WebContact) => {
-          this.messages = this.messages.filter(msg => msg.id === message.id ? { ...message } : msg);
+          this.messages = this.messages.map(msg => msg.id === message.id ? { ...message } : msg);
           return this.translate("toasts.admin.web-contact.ignore.success", { "contact-email": message.email });
         },
         error: () => this.translate("toasts.admin.web-contact.ignore.error"),
       });
     },
     async block(id: string, reason?: string) {
-      toast.promise($fetch<WebContact>(`/api/web-contact/${id}/block`, { method: "POST", body: { reason } }), {
-        loading: () => this.translate("toasts.admin.web-contact.block.loading"),
-        success: (message: WebContact) => {
-          this.messages = this.messages.filter(msg => msg.id === message.id ? { ...message } : msg);
-          return this.translate("toasts.admin.web-contact.block.success", { "contact-email": message.email });
-        },
-        error: () => this.translate("toasts.admin.web-contact.block.error"),
-      });
+      this.loading.blocking = true;
+      let state = true;
+
+      try {
+        const message = await $fetch<WebContact>(`/api/web-contact/${id}/block`, { method: "POST", body: { reason } });
+
+        this.messages = this.messages.map(msg => msg.id === message.id ? { ...message } : msg);
+        toast.error(this.translate("toasts.admin.web-contact.block.success", { "contact-email": message.email }));
+      }
+      catch {
+        toast.error(this.translate("toasts.admin.web-contact.block.error"));
+        state = false;
+      }
+      finally {
+        this.loading.blocking = false;
+      }
+
+      return state;
     },
   },
 });

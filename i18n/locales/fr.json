@@ -1,7 +1,11 @@
 {
   "btn": {
     "cancel": "Annuler",
+    "close": "Fermer",
     "save": "Enregistrer",
+    "send": {
+      "default": "Envoyer"
+    },
     "create": {
       "default": "Créer",
       "article": "Écrire l'article"
@@ -69,9 +73,9 @@
           "error": "L'ignorance du message a rencontré une erreur."
         },
         "block": {
-          "loading": "Blocage de l'émetteur...",
+          "loading": "Blocage de l'expéditeur...",
           "success": "Vous avez bloqué {contact-email}.",
-          "error": "Le blocage de l'émetteur a rencontré une erreur."
+          "error": "Le blocage de l'expéditeur a rencontré une erreur."
         }
       }
     }
@@ -342,6 +346,80 @@
         "description": "Fliquez vos utilisateurs et retrouvez toutes leurs actions dans l'historique des actions."
       },
       "title": "Historique des actions"
+    },
+    "web-contact": {
+      "seo": {
+        "title": "Messagerie web",
+        "description": "Recevez et répondez à vos visiteurs par le biais de la messagerie web intégrée."
+      },
+      "title": "Messagerie web",
+      "table": {
+        "headers": {
+          "subject": "Sujet",
+          "message": "Message",
+          "sender": "Éditeur",
+          "status": "Statut",
+          "received-at": "Reçu le",
+          "processed-at": "Traité le"
+        },
+        "actions": {
+          "read": "Lire",
+          "reply": "Répondre",
+          "ignore": "Ignorer",
+          "block": "Bloquer l'expéditeur"
+        },
+        "values": {
+          "status": {
+            "new": "Nouveau",
+            "replied": "Répondu",
+            "ignored": "Ignoré",
+            "blocked": "Bloqué"
+          }
+        }
+      },
+      "dialogs": {
+        "details": {
+          "fields": {
+            "reply": "Votre réponse"
+          },
+          "banned": {
+            "title": "Adresse email black listée",
+            "description": {
+              "with-reason": "Cette adresse email a été bloquée par {author} pour la raison :\n\"{reason}\".",
+              "no-reason": "Cette adresse email a été bloquée par {author}."
+            }
+          }
+        },
+        "confirm-ignore": {
+          "title": "Ignorer le message",
+          "description": "Ignorer le message est une action irréversible. En ignorant le meesage, il ne vous sera plus possible d'y répondre directement. Êtes-vous sûr ?",
+          "action": "Ignorer"
+        },
+        "confirm-ban": {
+          "title": "Bannir l'expéditeur",
+          "description": "Vous êtes sur le point de placer {contact-email} en liste noire. Cette action est irréversible. Aucun nouveau message depuis la messagerie web ne pourra être envoyé depuis cette adresse e-mail.",
+          "fields": {
+            "reason": {
+              "label": "Raison",
+              "options": {
+                "none": "Aucune raison",
+                "spam": "Spam / Abus",
+                "scam": "Faux compte / Robot",
+                "other": "Autre"
+              },
+              "values": {
+                "spam": "Cet utilisateur abuse du système d'envoie de messages ou a envoyé trop de message en un temps réduit.",
+                "scam": "Cet utilisateur est un robot ou un compte frauduleux."
+              }
+            }
+          },
+          "action": "Bannir"
+        }
+      },
+      "empty": {
+        "title": "C'est vide par ici...",
+        "description": "Il semblerait que vous n'ayez encore reçu aucun message."
+      }
     }
   }
 }

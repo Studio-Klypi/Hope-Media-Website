@@ -1,4 +1,15 @@
-import type { WebContact } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
+
+export type WebContact = Prisma.WebContactGetPayload<{
+  include: {
+    replies: true;
+    blocked: {
+      include: {
+        user: true;
+      };
+    };
+  };
+}>;
 
 export interface WebContactState {
   messages: Listed<WebContact>;
@@ -6,6 +17,7 @@ export interface WebContactState {
   loading: {
     list: boolean;
     replying: boolean;
+    blocking: boolean;
   };
 }
 
@@ -15,5 +27,6 @@ export const defaults: WebContactState = {
   loading: {
     list: false,
     replying: false,
+    blocking: false,
   },
 };

@@ -7,6 +7,11 @@ export class WebContactRepository {
       data: payload,
       include: {
         replies: true,
+        blocked: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
   }
@@ -45,6 +50,11 @@ export class WebContactRepository {
       },
       include: {
         replies: true,
+        blocked: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
   }
@@ -62,6 +72,11 @@ export class WebContactRepository {
       },
       include: {
         replies: true,
+        blocked: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
   }
@@ -93,7 +108,11 @@ export class WebContactRepository {
       },
       include: {
         replies: true,
-        blocked: true,
+        blocked: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
   }
@@ -113,7 +132,11 @@ export class WebContactRepository {
       },
       include: {
         replies: true,
-        blocked: true,
+        blocked: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
 
