@@ -1,0 +1,14 @@
+Bonjour {{firstName}},
+
+Nous avons bien reçu votre témoignage et nous vous en remercions chaleureusement.
+Notre équipe va l'examiner dans les meilleurs délais. Vous serez informé(e) dès qu'il sera publié.
+
+---
+Votre témoignage :
+
+{{content}}
+---
+
+Si vous n'êtes pas à l'origine de ce témoignage, vous pouvez ignorer cet e-mail.
+
+© Hope Media — Tous droits réservés
