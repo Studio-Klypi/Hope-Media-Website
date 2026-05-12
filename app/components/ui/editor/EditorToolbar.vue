@@ -30,7 +30,8 @@ function setHeading(value: string | number) {
   const v = String(value);
   if (v === "p") {
     props.editor.chain().focus().setParagraph().run();
-  } else {
+  }
+ else {
     const level = parseInt(v.replace("h", "")) as 1 | 2 | 3 | 4 | 5 | 6;
     props.editor.chain().focus().setHeading({ level }).run();
   }
@@ -71,56 +72,110 @@ function toDataUrl(file: File): Promise<string> {
         : 'border-b border-border rounded-t-md bg-muted/30',
     )"
   >
-    <UiSelect :model-value="currentHeading" @update:model-value="setHeading">
+    <UiSelect
+      :model-value="currentHeading"
+      @update:model-value="setHeading"
+    >
       <UiSelectTrigger class="h-8 w-32 text-xs">
         <UiSelectValue />
       </UiSelectTrigger>
       <UiSelectContent>
-        <UiSelectItem v-for="opt in headingOptions" :key="opt.value" :value="opt.value">
+        <UiSelectItem
+          v-for="opt in headingOptions"
+          :key="opt.value"
+          :value="opt.value"
+        >
           {{ opt.label }}
         </UiSelectItem>
       </UiSelectContent>
     </UiSelect>
 
-    <UiSeparator orientation="vertical" class="mx-0.5 h-6" />
+    <UiSeparator
+      orientation="vertical"
+      class="mx-0.5 h-6"
+    />
 
-    <UiToggle size="sm" :pressed="editor.isActive('bold')" @click="editor.chain().focus().toggleBold().run()">
+    <UiToggle
+      size="sm"
+      :pressed="editor.isActive('bold')"
+      @click="editor.chain().focus().toggleBold().run()"
+    >
       <Bold />
     </UiToggle>
-    <UiToggle size="sm" :pressed="editor.isActive('italic')" @click="editor.chain().focus().toggleItalic().run()">
+    <UiToggle
+      size="sm"
+      :pressed="editor.isActive('italic')"
+      @click="editor.chain().focus().toggleItalic().run()"
+    >
       <Italic />
     </UiToggle>
-    <UiToggle size="sm" :pressed="editor.isActive('underline')" @click="editor.chain().focus().toggleUnderline().run()">
+    <UiToggle
+      size="sm"
+      :pressed="editor.isActive('underline')"
+      @click="editor.chain().focus().toggleUnderline().run()"
+    >
       <Underline />
     </UiToggle>
-    <UiToggle size="sm" :pressed="editor.isActive('strike')" @click="editor.chain().focus().toggleStrike().run()">
+    <UiToggle
+      size="sm"
+      :pressed="editor.isActive('strike')"
+      @click="editor.chain().focus().toggleStrike().run()"
+    >
       <Strikethrough />
     </UiToggle>
 
-    <UiSeparator orientation="vertical" class="mx-0.5 h-6" />
+    <UiSeparator
+      orientation="vertical"
+      class="mx-0.5 h-6"
+    />
 
-    <UiToggle size="sm" :pressed="editor.isActive('code')" @click="editor.chain().focus().toggleCode().run()">
+    <UiToggle
+      size="sm"
+      :pressed="editor.isActive('code')"
+      @click="editor.chain().focus().toggleCode().run()"
+    >
       <Code />
     </UiToggle>
-    <UiToggle size="sm" :pressed="editor.isActive('blockquote')" @click="editor.chain().focus().toggleBlockquote().run()">
+    <UiToggle
+      size="sm"
+      :pressed="editor.isActive('blockquote')"
+      @click="editor.chain().focus().toggleBlockquote().run()"
+    >
       <Quote />
     </UiToggle>
 
     <template v-if="!floating">
-      <UiSeparator orientation="vertical" class="mx-0.5 h-6" />
+      <UiSeparator
+        orientation="vertical"
+        class="mx-0.5 h-6"
+      />
 
-      <UiToggle size="sm" :pressed="editor.isActive('bulletList')" @click="editor.chain().focus().toggleBulletList().run()">
+      <UiToggle
+        size="sm"
+        :pressed="editor.isActive('bulletList')"
+        @click="editor.chain().focus().toggleBulletList().run()"
+      >
         <List />
       </UiToggle>
-      <UiToggle size="sm" :pressed="editor.isActive('orderedList')" @click="editor.chain().focus().toggleOrderedList().run()">
+      <UiToggle
+        size="sm"
+        :pressed="editor.isActive('orderedList')"
+        @click="editor.chain().focus().toggleOrderedList().run()"
+      >
         <ListOrdered />
       </UiToggle>
 
-      <UiSeparator orientation="vertical" class="mx-0.5 h-6" />
+      <UiSeparator
+        orientation="vertical"
+        class="mx-0.5 h-6"
+      />
 
       <EditorLinkPopover :editor="editor" />
 
-      <UiToggle size="sm" @click="fileInput?.click()">
+      <UiToggle
+        size="sm"
+        @click="fileInput?.click()"
+      >
         <Image />
       </UiToggle>
       <input
@@ -129,11 +184,14 @@ function toDataUrl(file: File): Promise<string> {
         accept="image/*"
         class="hidden"
         @change="handleImageUpload"
-      />
+      >
 
       <EditorTablePopover :editor="editor" />
 
-      <UiToggle size="sm" @click="editor.chain().focus().setHorizontalRule().run()">
+      <UiToggle
+        size="sm"
+        @click="editor.chain().focus().setHorizontalRule().run()"
+      >
         <Minus />
       </UiToggle>
     </template>
