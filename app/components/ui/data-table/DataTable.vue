@@ -29,9 +29,9 @@ function rowUrl(row: TData): string {
 
   return link;
 }
-async function handleRowClick() {
+async function handleRowClick(row: TData) {
   if (!props.rowAction) return;
-  await props.rowAction();
+  await props.rowAction(row);
 }
 </script>
 
@@ -62,7 +62,8 @@ async function handleRowClick() {
             :key="row.id"
             :data-state="row.getIsSelected() ? 'selected' : undefined"
             class="relative isolate"
-            @click="handleRowClick"
+            :class="{ 'cursor-pointer': !!rowAction }"
+            @click="handleRowClick(row.original)"
           >
             <TableCell
               v-for="cell in row.getVisibleCells()"
