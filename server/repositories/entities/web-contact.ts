@@ -93,4 +93,12 @@ export class WebContactRepository {
       },
     };
   }
+
+  async isBlocked(email: string) {
+    return !!(await prisma.webBlock.findFirst({
+      where: {
+        email,
+      },
+    }));
+  }
 }
