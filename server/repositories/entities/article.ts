@@ -71,7 +71,12 @@ export class ArticleRepository {
   }
 
   async getAll(admin: boolean = false) {
-    return prisma.article.findMany({
+    const total = await prisma.article.count({
+      where: {
+        ...(admin ? {} : { status: ArticleStatus.PUBLISHED }),
+      },
+    });
+    const data = await prisma.article.findMany({
       where: {
         ...(admin ? {} : { status: ArticleStatus.PUBLISHED }),
       },
