@@ -99,8 +99,15 @@ export class WebContactRepository {
   }
 
   async getAll() {
-    const total = await prisma.webContact.count();
+    const total = await prisma.webContact.count({
+      where: {
+        replyTo: null,
+      },
+    });
     const data = await prisma.webContact.findMany({
+      where: {
+        replyTo: null,
+      },
       include: {
         replies: true,
         blocked: true,
