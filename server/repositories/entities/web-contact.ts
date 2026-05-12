@@ -108,6 +108,9 @@ export class WebContactRepository {
       where: {
         replyTo: null,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
       include: {
         replies: true,
         blocked: true,
