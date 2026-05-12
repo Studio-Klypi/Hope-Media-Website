@@ -12,7 +12,8 @@ defineProps<AdminSidebarButtonProps>();
     >
       <NuxtLinkLocale
         :to="to"
-        active-class="bg-sidebar-primary! text-sidebar-primary-foreground!"
+        :exact-active-class="exact ? 'bg-sidebar-primary! text-sidebar-primary-foreground!' : ''"
+        :active-class="!exact ? 'bg-sidebar-primary! text-sidebar-primary-foreground!' : ''"
       >
         <component :is="icon" />
         {{ $t(label) }}

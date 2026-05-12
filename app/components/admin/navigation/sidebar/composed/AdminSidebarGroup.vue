@@ -17,6 +17,7 @@ defineProps<AdminSidebarGroupProps>();
         :icon="item.icon"
         :label="item.label"
         :to="item.to"
+        :exact="item.exact ?? false"
       />
     </UiSidebarMenu>
   </UiSidebarGroup>
