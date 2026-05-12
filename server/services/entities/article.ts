@@ -81,6 +81,38 @@ export class ArticleEngine {
     }
   }
 
+  async delete(event: HttpEvent) {
+    const user = requireAuth(event);
+    const id = Number(getRouterParam(event, "articleId") as string);
+
+    try {
+      const article = await ArticleModel.delete(id);
+      await AuditEntryModel.create({
+        userId: user.id,
+        type: EntryType.ARTICLE_DELETED,
+        data: {
+          article,
+        },
+      });
+
+      return article;
+    }
+    catch (e) {
+      const error = e as Prisma.PrismaClientKnownRequestError;
+
+      switch (error.code) {
+        case "P2025": return sendError(event, createError({
+          statusCode: HttpCode.NOT_FOUND,
+          statusMessage: "Unable to find the article.",
+        }));
+        default: return sendError(event, createError({
+          statusCode: HttpCode.INTERNAL_SERVER_ERROR,
+          statusMessage: "Unable to delete the article.",
+        }));
+      }
+    }
+  }
+
   async getViews(event: HttpEvent) {
     requireAuth(event);
 
@@ -152,6 +184,38 @@ export class ArticleEngine {
       await AuditEntryModel.create({
         userId: user.id,
         type: EntryType.ARTICLE_PUBLISHED,
+        data: {
+          article,
+        },
+      });
+
+      return article;
+    }
+    catch (e) {
+      const error = e as Prisma.PrismaClientKnownRequestError;
+
+      switch (error.code) {
+        case "P2025": return sendError(event, createError({
+          statusCode: HttpCode.NOT_FOUND,
+          statusMessage: "Unable to find article.",
+        }));
+        default: return sendError(event, createError({
+          statusCode: HttpCode.INTERNAL_SERVER_ERROR,
+          statusMessage: "Unable to publish article.",
+        }));
+      }
+    }
+  }
+
+  async convertToDraft(event: HttpEvent) {
+    const user = requireAuth(event);
+    const id = Number(getRouterParam(event, "articleId") as string);
+
+    try {
+      const article = await ArticleModel.convertToDraft(id);
+      await AuditEntryModel.create({
+        userId: user.id,
+        type: EntryType.ARTICLE_UNPUBLISHED,
         data: {
           article,
         },
