@@ -67,7 +67,7 @@ export default class UserEngine {
         httpOnly: true,
         secure: true,
         sameSite: "lax",
-        maxAge: 60 * 60 * 2,
+        maxAge: 60 * 60 * 2 * 14,
       });
 
       return user;
