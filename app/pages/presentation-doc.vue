@@ -60,7 +60,7 @@ definePageMeta({
     >
       <Wrapper class="max-w-none flex flex-col items-center">
         <video
-          src="/videos/teaser.mp4"
+          :src="useRuntimeConfig().public.teaser.url"
           autoplay
           muted
           loop
