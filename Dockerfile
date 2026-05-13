@@ -15,4 +15,6 @@ RUN NODE_OPTIONS=--max-old-space-size=4096 pnpm build
 
 ENV NODE_ENV=production
 
-CMD npx prisma migrate deploy && pnpm start
+RUN npx prisma migrate deploy && npx prisma db seed
+
+CMD pnpm start
