@@ -12,7 +12,7 @@ const normalized = computed(() => {
   return Math.round((props.value * props.length) / props.max * 10) / 10;
 });
 const result = computed(() => Math.floor(normalized.value));
-const rest = computed(() => normalized.value % props.length);
+const rest = computed(() => normalized.value % 2);
 </script>
 
 <template>

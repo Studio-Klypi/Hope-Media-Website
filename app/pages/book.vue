@@ -2,6 +2,11 @@
 import Page from "~/components/composing/Page.vue";
 import Wrapper from "~/components/composing/Wrapper.vue";
 import TestimonialCard from "~/components/pages/book/TestimonialCard.vue";
+
+const store = useTestimonialStore();
+const { testimonials } = storeToRefs(store);
+
+store.load();
 </script>
 
 <template>
@@ -22,8 +27,9 @@ import TestimonialCard from "~/components/pages/book/TestimonialCard.vue";
 
       <main class="columns-1 @xl/page:columns-2 @3xl/page:columns-3 space-y-4">
         <TestimonialCard
-          v-for="i in 15"
-          :key="i"
+          v-for="testimonial in testimonials"
+          :key="testimonial.id"
+          :testimonial
         />
       </main>
     </Wrapper>
