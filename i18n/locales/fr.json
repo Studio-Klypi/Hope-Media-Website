@@ -29,6 +29,12 @@
     "error": {
       "default": "Une erreur est survenue."
     },
+    "contact-message": {
+      "sent": {
+        "title": "Merci pour votre message !",
+        "description": "Nous vous avons envoyé un accusé de réception par email."
+      }
+    },
     "admin": {
       "blog": {
         "article": {

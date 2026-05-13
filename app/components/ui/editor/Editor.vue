@@ -36,7 +36,7 @@ const turndown = new TurndownService({ headingStyle: "atx", codeBlockStyle: "fen
 
 const props = withDefaults(defineProps<{
   modelValue?: string;
-  variant?: "fixed" | "floating";
+  variant?: "fixed" | "simplified" | "floating";
   uploadImage?: (file: File) => Promise<string>;
   class?: HTMLAttributes["class"];
 }>(), {
