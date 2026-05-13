@@ -6,6 +6,8 @@ import { requireAuth } from "#server/utils/auth";
 import { EntryType } from "@prisma/client";
 
 export default class UserEngine {
+  static AUTH_COOKIE_NAME = "auth_token" as const;
+
   async create(event: HttpEvent) {
     requireAuth(event);
     const body = await readBody<UserPayload>(event);
@@ -63,7 +65,7 @@ export default class UserEngine {
         },
       });
 
-      setCookie(event, "auth_token", session.token, {
+      setCookie(event, UserEngine.AUTH_COOKIE_NAME, session.token, {
         httpOnly: true,
         secure: true,
         sameSite: "lax",
@@ -96,6 +98,8 @@ export default class UserEngine {
 
       if (body.all) count = await SessionModel.revokeAll(user.id);
       else await SessionModel.revoke(token);
+
+      deleteCookie(event, UserEngine.AUTH_COOKIE_NAME);
 
       await AuditEntryModel.create({
         userId: user.id,
