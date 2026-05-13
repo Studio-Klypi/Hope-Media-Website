@@ -1,0 +1,9 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@prisma/engines'
+  - esbuild
+  - maplibre-gl
+  - prisma
+  - sharp
+  - unrs-resolver
+  - vue-demi
