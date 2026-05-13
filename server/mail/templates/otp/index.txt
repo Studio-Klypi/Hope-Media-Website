@@ -1,0 +1,17 @@
+Votre code de connexion Hope Media
+===================================
+
+Bonjour {{firstName}},
+
+Vous avez demandé à vous connecter à votre espace Hope Media.
+Voici votre code de connexion à usage unique :
+
+  {{code}}
+
+Ce code est valable 15 minutes. Passé ce délai, vous devrez en demander un nouveau.
+
+---
+Si vous n'êtes pas à l'origine de cette demande, ignorez simplement cet e-mail.
+Votre compte reste sécurisé.
+
+© Hope Media — Tous droits réservés

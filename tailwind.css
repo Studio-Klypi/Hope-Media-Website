@@ -1,7 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @custom-variant dark (&:is(.dark *));
 
@@ -22,9 +23,9 @@
   --accent-foreground: oklch(0 0 0);
   --destructive: oklch(0.5941 0.1815 23.4679);
   --destructive-foreground: oklch(0.9911 0 0);
-  --border: oklch(0.9795 0.0260 90.0942);
-  --input: oklch(0.9795 0.0260 90.0942);
-  --ring: oklch(0.9320 0.0896 90.8617);
+  --border: oklch(0.9249 0 0);
+  --input: oklch(0.9249 0 0);
+  --ring: oklch(0.8290 0.1712 81.0381);
   --chart-1: oklch(0.9244 0.0982 90.4638);
   --chart-2: oklch(0.8741 0.1520 88.1114);
   --chart-3: oklch(0.8290 0.1712 81.0381);
@@ -56,6 +57,7 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 }
+
 .dark {
   --background: oklch(0 0 0);
   --foreground: oklch(1.0000 0 0);
@@ -71,11 +73,11 @@
   --muted-foreground: oklch(0.4819 0 0);
   --accent: oklch(0.2603 0 0);
   --accent-foreground: oklch(1.0000 0 0);
-  --destructive: oklch(0.4513 0.1624 26.0879);
+  --destructive: oklch(0.6379 0.2372 26.5658);
   --destructive-foreground: oklch(0.9612 0 0);
   --border: oklch(0.3092 0 0);
   --input: oklch(0.3092 0 0);
-  --ring: oklch(0.6993 0 0);
+  --ring: oklch(0.8290 0.1712 81.0381);
   --chart-1: oklch(0.9197 0.1020 89.8603);
   --chart-2: oklch(0.8807 0.1467 88.7258);
   --chart-3: oklch(0.8290 0.1712 81.0381);
@@ -88,7 +90,7 @@
   --sidebar-accent: oklch(0.2603 0 0);
   --sidebar-accent-foreground: oklch(1.0000 0 0);
   --sidebar-border: oklch(0.3092 0 0);
-  --sidebar-ring: oklch(0.6993 0 0);
+  --sidebar-ring: oklch(0.8290 0.1712 81.0381);
   --radius: 0.5rem;
   --shadow-x: 0;
   --shadow-y: 1px;
@@ -126,6 +128,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-bomb: oklch(0.6834 0.2053 24.36);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -147,7 +150,7 @@
   --color-instagram-5: oklch(0.5316 0.1855 273.99);
 
   --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
-  --font-serif: Source Serif 4, serif;
+  --font-serif: Anton, sans-serif;
   --font-mono: JetBrains Mono, monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -163,20 +166,15 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+  --font-heading: var(--font-sans);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+  *::selection {
+    @apply bg-foreground text-primary;
   }
   body {
     @apply bg-background text-foreground;

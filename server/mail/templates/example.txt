@@ -1,0 +1,8 @@
+Bonjour {{firstName}} !
+
+{{message}}
+
+{{ctaLabel}} : {{ctaUrl}}
+
+---
+© Hope Media — Tous droits réservés

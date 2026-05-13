@@ -1,0 +1,87 @@
+import { prisma } from "#server/utils/prisma";
+import type { CreateTestimonial } from "#shared/types/entities/testimonial";
+import type { UserEntity } from "#shared/types/entities/user";
+
+export class TestimonialRepository {
+  async getAll() {
+    const total = await prisma.testimonial.count();
+    const data = await prisma.testimonial.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        processor: true,
+      },
+    });
+
+    return {
+      data,
+      meta: {
+        total,
+        count: data.length,
+      },
+    };
+  }
+
+  async getAllUnprocessed() {
+    return prisma.testimonial.count({
+      where: {
+        publishedAt: null,
+        rejectedAt: null,
+      },
+    });
+  }
+
+  async getAllApproved() {
+    return prisma.testimonial.count({
+      where: {
+        publishedAt: {
+          not: null,
+        },
+      },
+    });
+  }
+
+  async create(payload: CreateTestimonial) {
+    return prisma.testimonial.create({
+      data: payload,
+      include: {
+        processor: true,
+      },
+    });
+  }
+
+  async approve(id: string, user: UserEntity) {
+    return prisma.testimonial.update({
+      where: {
+        id,
+        publishedAt: null,
+        rejectedAt: null,
+      },
+      data: {
+        processedBy: user.id,
+        publishedAt: new Date(),
+      },
+      include: {
+        processor: true,
+      },
+    });
+  }
+
+  async reject(id: string, user: UserEntity) {
+    return prisma.testimonial.update({
+      where: {
+        id,
+        publishedAt: null,
+        rejectedAt: null,
+      },
+      data: {
+        processedBy: user.id,
+        rejectedAt: new Date(),
+      },
+      include: {
+        processor: true,
+      },
+    });
+  }
+}
