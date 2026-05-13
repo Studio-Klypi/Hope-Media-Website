@@ -118,8 +118,13 @@ articleStore.load();
             {{ $t("home.job.description") }}
           </p>
 
-          <UiButton class="w-min">
-            {{ $t("home.job.cta") }}
+          <UiButton
+            class="w-min"
+            as-child
+          >
+            <NuxtLinkLocale to="/contact">
+              {{ $t("home.job.cta") }}
+            </NuxtLinkLocale>
           </UiButton>
         </article>
       </Wrapper>
