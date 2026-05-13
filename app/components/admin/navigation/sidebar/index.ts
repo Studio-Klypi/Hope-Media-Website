@@ -25,11 +25,11 @@ export const groups: Listed<AdminSidebarGroupProps> = [
         label: "admin.navigation.portfolio.blog",
         to: "/admin/blog",
       },
-      /* {
+      {
         icon: Star,
-        label: "Témoignages",
+        label: "admin.navigation.portfolio.testimonials",
         to: "/admin/testimonials",
-      }, */
+      },
     ],
   },
   /* {

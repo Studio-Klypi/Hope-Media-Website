@@ -77,6 +77,18 @@
           "success": "Vous avez bloqué {contact-email}.",
           "error": "Le blocage de l'expéditeur a rencontré une erreur."
         }
+      },
+      "testimonials": {
+        "approve": {
+          "loading": "Publication du témoignage...",
+          "success": "Témoignage de {name} publié.",
+          "error": "La publication du témoignage a rencontré une erreur."
+        },
+        "reject": {
+          "loading": "Rejet du témoignage...",
+          "success": "Témoignage de {name} rejeté.",
+          "error": "Le rejet du témoignage a rencontré une erreur."
+        }
       }
     }
   },
@@ -233,7 +245,8 @@
       "dashboard": "Tableau de bord",
       "portfolio": {
         "label": "Portfolio",
-        "blog": "Blog"
+        "blog": "Blog",
+        "testimonials": "Témoignages"
       },
       "contact": {
         "label": "Messagerie",
@@ -266,10 +279,13 @@
       "ARTICLE_ARCHIVED": "{author} a archivé l'article \"{title}\".",
       "ARTICLE_RESTORED": "{author} a restauré l'article \"{title}\".",
       "ARTICLE_DELETED": "{author} a supprimé l'article \"{title}\".",
-      "WEB_MESSAGE_RECEIVED": "Un message a été envoyé par {email}.",
+      "WEB_MESSAGE_RECEIVED": "Un message a été envoyé par {contact-email}.",
       "WEB_MESSAGE_REPLYED": "{author} a répondu à {contact-email}.",
       "WEB_MESSAGE_IGNORE": "{author} a ignoré le message de {contact-email}.",
-      "WEB_SENDER_BLOCKED": "{author} a bloqué {contact-email}."
+      "WEB_SENDER_BLOCKED": "{author} a bloqué {contact-email}.",
+      "TESTIMONIAL_SENT": "Vous avez reçu un témoignage de {testimonial-author}.",
+      "TESTIMONIAL_APPROVED": "{author} a approuvé le témoignage de {testimonial-author}.",
+      "TESTIMONIAL_REJECTED": "{author} a rejeté le témoignage de {testimonial-author}."
     },
 
     "home": {
@@ -292,7 +308,7 @@
         "total-views": "Vues",
         "new-messages": "Nouveaux messages",
         "new-testimonials": "Nouveaux témoignages",
-        "validated-testimonials": "Témoignages validés"
+        "validated-testimonials": "Témoignages approuvés"
       },
       "views-evolution": {
         "title": "Évolution des vues",
@@ -419,6 +435,33 @@
       "empty": {
         "title": "C'est vide par ici...",
         "description": "Il semblerait que vous n'ayez encore reçu aucun message."
+      }
+    },
+    "testimonials": {
+      "table": {
+        "headers": {
+          "status": "Statut",
+          "name": "Nom",
+          "role": "Rôle",
+          "email": "Email",
+          "content": "Contenu",
+          "ranking": "Note"
+        },
+        "values": {
+          "published": "Publié",
+          "rejected": "Rejeté",
+          "new": "Nouveau"
+        }
+      },
+      "actions": {
+        "approve": "Approuver",
+        "reject": "Rejeter"
+      },
+      "dialogs": {
+        "details": {
+          "title": "Témoignage de {name}",
+          "actions": "Actions"
+        }
       }
     }
   }

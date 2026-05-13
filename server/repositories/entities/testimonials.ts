@@ -6,6 +6,9 @@ export class TestimonialRepository {
   async getAll() {
     const total = await prisma.testimonial.count();
     const data = await prisma.testimonial.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
       include: {
         processor: true,
       },

@@ -14,10 +14,12 @@ defineProps<AdminAuditEntryProps>();
       <UiItemTitle>
         <template v-if="entry">
           {{ $t(`admin.audit.${entry.type}`, {
-            author: entry.user?.firstName,
-            user: entry.data?.user?.firstName ?? entry.data?.firstName,
-            code: entry.data?.code,
-            title: entry.data?.article?.title ?? entry.data?.article?.old?.title,
+            "author": entry.user?.firstName,
+            "user": entry.data?.user?.firstName ?? entry.data?.firstName,
+            "code": entry.data?.code,
+            "title": entry.data?.article?.title ?? entry.data?.article?.old?.title,
+            "contact-email": entry.data?.message?.email,
+            "testimonial-author": `${entry.data?.testimonial?.firstName} ${entry.data?.testimonial?.lastName}`,
           }) }}
         </template>
         <UiSkeleton
