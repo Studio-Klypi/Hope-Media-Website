@@ -1,9 +1,9 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@prisma/engines'
-  - esbuild
-  - maplibre-gl
-  - prisma
-  - sharp
-  - unrs-resolver
-  - vue-demi
+allowBuilds:
+  '@parcel/watcher': true
+  '@prisma/engines': true
+  esbuild: true
+  maplibre-gl: true
+  prisma: true
+  sharp: true
+  unrs-resolver: true
+  vue-demi: true
