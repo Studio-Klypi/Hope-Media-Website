@@ -5,7 +5,6 @@ export default defineNuxtRouteMiddleware((to) => {
   const { loggedIn } = storeToRefs(store);
   const localePath = useLocalePath();
 
-  console.log(loggedIn.value);
   if (!loggedIn.value && to.path.includes("/admin/auth")) return;
 
   if (!loggedIn.value) return navigateTo(localePath("/admin/auth/login"));

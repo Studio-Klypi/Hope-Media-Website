@@ -6,8 +6,6 @@ import { resolve } from "node:path";
 const transporter = () => {
   const config = useRuntimeConfig().mail;
 
-  console.log("Type de SECURE in config", typeof config.secure);
-
   return nodemailer.createTransport({
     host: config.host,
     port: Number(config.port),

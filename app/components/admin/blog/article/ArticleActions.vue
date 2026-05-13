@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ArticleProps } from "~/components/admin/blog";
 import { MoreHorizontal, Trash, BookDashed, Upload, Archive, ArchiveX, Edit2 } from "@lucide/vue";
-import { ArticleStatus } from "@prisma/client";
+import { ArticleStatus } from "~/types/states/blog";
 import ConfirmationDialog from "~/components/dialogs/ConfirmationDialog.vue";
 
 defineProps<ArticleProps>();
