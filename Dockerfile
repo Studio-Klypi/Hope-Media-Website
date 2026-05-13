@@ -11,7 +11,7 @@ RUN pnpm install --frozen-lockfile
 COPY prisma ./prisma/
 RUN npx prisma generate
 
-RUN pnpm build
+RUN NODE_OPTIONS=--max-old-space-size=4096 pnpm build
 
 ENV NODE_ENV=production
 
