@@ -1,4 +1,5 @@
 import { AuditEntryModel, OTPModel, UserModel } from "#server/repositories";
+import type { Prisma } from "@prisma/client";
 import { EntryType } from "@prisma/client";
 
 export default class OTPEngine {
@@ -29,18 +30,24 @@ export default class OTPEngine {
           code: otp.code,
         },
       }).catch((e) => {
-        console.error("Unable to send OTP.");
-        console.error(e);
+        console.error("[OTP REQUEST] Invalid email or .", e);
       });
-      console.log(`🔑 CODE generated for ${body.email} - ${otp.code}`);
+      console.log(`[OTP REQUEST] ${body.email} 🔑 ${otp.code}`);
       return;
     }
     catch (e) {
-      console.error(e);
-      return sendError(event, createError({
-        statusCode: HttpCode.INTERNAL_SERVER_ERROR,
-        statusMessage: "Error occurred while creating an OTP.",
-      }));
+      const error = e as Prisma.PrismaClientKnownRequestError;
+
+      switch (error.code) {
+        case "P2025": return sendError(event, createError({
+          statusCode: HttpCode.NOT_FOUND,
+          statusMessage: "Unable to find the user.",
+        }));
+        default: return sendError(event, createError({
+          statusCode: HttpCode.INTERNAL_SERVER_ERROR,
+          statusMessage: "Error occurred while creating an OTP.",
+        }));
+      }
     }
   }
 }
