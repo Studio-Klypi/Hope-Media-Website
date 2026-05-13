@@ -29,6 +29,7 @@ export const usePublicTestimonialStore = defineStore("publicTestimonials", {
 
     async create(payload: CreateTestimonial) {
       this.loading.creating = true;
+      let state = true;
 
       try {
         await $fetch("/api/testimonials", {
@@ -41,10 +42,13 @@ export const usePublicTestimonialStore = defineStore("publicTestimonials", {
       }
       catch {
         toast.error(this.translate("toasts.error.default"));
+        state = false;
       }
       finally {
         this.loading.creating = false;
       }
+
+      return state;
     },
   },
 });

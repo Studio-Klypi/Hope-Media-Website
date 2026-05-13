@@ -2,6 +2,7 @@
 import Page from "~/components/composing/Page.vue";
 import Wrapper from "~/components/composing/Wrapper.vue";
 import TestimonialCard from "~/components/pages/book/TestimonialCard.vue";
+import CreateTestimonialDialog from "~/components/pages/book/CreateTestimonialDialog.vue";
 
 const store = useTestimonialStore();
 const { testimonials } = storeToRefs(store);
@@ -20,9 +21,11 @@ store.load();
           {{ $t("book.title") }}
         </h1>
 
-        <UiButton>
-          {{ $t("book.new-testimonial") }}
-        </UiButton>
+        <CreateTestimonialDialog>
+          <UiButton>
+            {{ $t("book.new-testimonial") }}
+          </UiButton>
+        </CreateTestimonialDialog>
       </header>
 
       <main class="columns-1 @xl/page:columns-2 @3xl/page:columns-3 space-y-4">

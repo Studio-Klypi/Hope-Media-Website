@@ -18,6 +18,16 @@
   "labels": {
     "search": "Rechercher...",
     "optional": "Facultatif | Facultative",
+    "testimonial": {
+      "role": "{role} chez {company}",
+      "ranking": [
+        "Mauvais",
+        "Moyen",
+        "Bon",
+        "Très bon",
+        "Excellent"
+      ]
+    },
     "table": {
       "empty": {
         "results": "Aucun résultat.",
@@ -32,6 +42,12 @@
     "contact-message": {
       "sent": {
         "title": "Merci pour votre message !",
+        "description": "Nous vous avons envoyé un accusé de réception par email."
+      }
+    },
+    "testimonials": {
+      "sent": {
+        "title": "Merci pour votre témoignage !",
         "description": "Nous vous avons envoyé un accusé de réception par email."
       }
     },
@@ -155,11 +171,25 @@
   },
   "book": {
     "seo": {
-      "title": "",
-      "description": ""
+      "title": "Livre d'Or",
+      "description": "Faites-nous part de votre expérience avec notre équipe et nos services afin de figurer sur notre livre d'or."
     },
     "title": "Livre d'Or",
-    "new-testimonial": "Déposer un témoignage"
+    "new-testimonial": "Déposer un témoignage",
+    "dialog": {
+      "title": "Soumettre un témoignage",
+      "description": "Faites-nous part de votre expérience avec notre équipe et nos services. En bien comme en mauvais, faites-le nous savoir.",
+      "fields": {
+        "first-name": "Prénom",
+        "last-name": "Nom",
+        "email": "Adresse email",
+        "role": "Rôle",
+        "company": "Entreprise",
+        "ranking": "Évaluation",
+        "content": "Contenu"
+      },
+      "action": "Soumettre"
+    }
   },
   "gallery": {
     "seo": {
