@@ -4,7 +4,7 @@ RUN npm install -g pnpm@11.1.1
 
 WORKDIR /app
 
-COPY pnpm-lock.yaml package.json tsconfig.json prisma.config.ts ./
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json tsconfig.json prisma.config.ts ./
 RUN pnpm install --frozen-lockfile
 
 COPY prisma ./prisma/
