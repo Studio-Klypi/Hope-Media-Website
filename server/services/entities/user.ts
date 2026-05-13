@@ -84,7 +84,7 @@ export default class UserEngine {
 
   async logout(event: HttpEvent) {
     const user = requireAuth(event);
-    const token = getCookie(event, "auth_token");
+    const token = getCookie(event, UserEngine.AUTH_COOKIE_NAME);
 
     if (!token) return sendError(event, createError({
       statusCode: HttpCode.BAD_REQUEST,
@@ -96,7 +96,7 @@ export default class UserEngine {
     try {
       let count = 1;
 
-      if (body.all) count = await SessionModel.revokeAll(user.id);
+      if (body?.all) count = await SessionModel.revokeAll(user.id);
       else await SessionModel.revoke(token);
 
       deleteCookie(event, UserEngine.AUTH_COOKIE_NAME);
@@ -109,7 +109,8 @@ export default class UserEngine {
         },
       });
     }
-    catch {
+    catch (e) {
+      console.error(e);
       return sendError(event, createError({
         statusCode: HttpCode.INTERNAL_SERVER_ERROR,
         statusMessage: "Error occurred while logging out.",

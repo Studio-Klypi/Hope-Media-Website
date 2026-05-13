@@ -66,7 +66,7 @@ export const useUserStore = defineStore("user", {
       return state;
     },
     logout() {
-      toast.promise($fetch("/api/auth/logout", { method: "DELETE" }), {
+      toast.promise($fetch("/api/auth/logout", { method: "DELETE", body: {} }), {
         loading: () => this.translate("toasts.auth.logout.loading"),
         success: () => {
           navigateTo(useLocalePath()("/admin/auth/login"));
