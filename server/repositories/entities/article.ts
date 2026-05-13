@@ -70,6 +70,10 @@ export class ArticleRepository {
     return prisma.$queryRaw<Listed<{ day: Date; count: number }>>`SELECT DATE("createdAt") as day, COUNT(*)::int as count FROM "article_views" WHERE "createdAt" >= ${start} AND "createdAt" <= ${end} GROUP BY day ORDER BY day ASC`;
   }
 
+  async getAllViews() {
+    return prisma.articleView.count();
+  }
+
   async getAll(admin: boolean = false) {
     const total = await prisma.article.count({
       where: {

@@ -156,4 +156,15 @@ export class WebContactRepository {
       },
     }));
   }
+
+  async getAllUnprocessed() {
+    return prisma.webContact.count({
+      where: {
+        replyTo: null,
+        repliedAt: null,
+        ignoredAt: null,
+        blockedAt: null,
+      },
+    });
+  }
 }

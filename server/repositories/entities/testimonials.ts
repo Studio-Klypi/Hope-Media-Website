@@ -23,6 +23,25 @@ export class TestimonialRepository {
     };
   }
 
+  async getAllUnprocessed() {
+    return prisma.testimonial.count({
+      where: {
+        publishedAt: null,
+        rejectedAt: null,
+      },
+    });
+  }
+
+  async getAllApproved() {
+    return prisma.testimonial.count({
+      where: {
+        publishedAt: {
+          not: null,
+        },
+      },
+    });
+  }
+
   async create(payload: CreateTestimonial) {
     return prisma.testimonial.create({
       data: payload,

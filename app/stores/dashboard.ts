@@ -10,8 +10,15 @@ export const useDashboardStore = defineStore("dashboard", {
     async loadStats() {
       this.loading.stats = true;
 
-      await new Promise(resolve => setTimeout(resolve, 1000 + Math.floor(Math.random() * 1000)));
-      this.loading.stats = false;
+      try {
+        this.stats = await $fetch<DashboardState["stats"]>("/api/statistics");
+      }
+      catch {
+        toast.error(this.translate("toasts.error.default"));
+      }
+      finally {
+        this.loading.stats = false;
+      }
     },
     async loadGraph() {
       this.loading.graph = true;
