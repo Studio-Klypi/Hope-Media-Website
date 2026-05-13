@@ -155,8 +155,6 @@ export class ArticleEngine {
       const article = await ArticleModel.get(slug, !!user);
       if (!user) await ArticleModel.saveView(article.id, ip);
 
-      console.log(ip);
-
       return article;
     }
     catch (e) {

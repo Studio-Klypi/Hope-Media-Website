@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ArticleProps } from "~/components/admin/blog";
-import { ArticleStatus } from "@prisma/client";
+import { ArticleStatus } from "~/types/states/blog";
 import type { BadgeVariants } from "~/components/ui/badge";
 
 const props = defineProps<ArticleProps>();
