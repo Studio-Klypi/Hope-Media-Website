@@ -57,7 +57,7 @@ articleStore.load();
         <QuoteBlock>
           <video
             ref="videoRef"
-            src="/videos/teaser.mp4"
+            :src="useRuntimeConfig().public.teaser.url"
             type="video/mp4"
             preload="auto"
             playsinline

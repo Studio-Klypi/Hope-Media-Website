@@ -56,6 +56,9 @@ export default defineNuxtConfig({
       app: {
         maintenance: "",
       },
+      teaser: {
+        url: "",
+      },
       social: {
         facebook: "",
         instagram: "",
