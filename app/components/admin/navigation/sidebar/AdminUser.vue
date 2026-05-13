@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { LogOut } from "@lucide/vue";
 
-const { user } = storeToRefs(useUserStore());
+const store = useUserStore();
+const { user } = storeToRefs(store);
 </script>
 
 <template>
@@ -17,7 +18,10 @@ const { user } = storeToRefs(useUserStore());
       </UiAvatar>
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="end">
-      <UiDropdownMenuItem variant="destructive">
+      <UiDropdownMenuItem
+        variant="destructive"
+        @click="store.logout()"
+      >
         <LogOut />
         {{ $t("admin.navigation.user.logout") }}
       </UiDropdownMenuItem>
