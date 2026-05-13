@@ -1,9 +1,11 @@
 import { defaults, type UserState } from "~/types/states/user";
 import type { UserEntity } from "#shared/types/entities/user";
+import { toast } from "vue-sonner";
 
 export const useUserStore = defineStore("user", {
   state: (): UserState => ({ ...defaults }),
   getters: {
+    translate: () => useNuxtApp().$i18n.t,
     loggedIn: state => !!state.user,
   },
   actions: {
@@ -63,6 +65,15 @@ export const useUserStore = defineStore("user", {
 
       return state;
     },
-    logout() {},
+    logout() {
+      toast.promise($fetch("/api/auth/logout", { method: "DELETE" }), {
+        loading: () => this.translate("toasts.auth.logout.loading"),
+        success: () => {
+          navigateTo(useLocalePath()("/admin/auth/login"));
+          return this.translate("toasts.auth.logout.success");
+        },
+        error: () => this.translate("toasts.auth.logout.error"),
+      });
+    },
   },
 });

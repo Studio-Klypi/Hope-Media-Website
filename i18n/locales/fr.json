@@ -39,6 +39,13 @@
     "error": {
       "default": "Une erreur est survenue."
     },
+    "auth": {
+      "logout": {
+        "loading": "Déconnexion...",
+        "success": "Vous avez été déconnectés.",
+        "error": "La déconnexion a rencontré une erreur."
+      }
+    },
     "contact-message": {
       "sent": {
         "title": "Merci pour votre message !",

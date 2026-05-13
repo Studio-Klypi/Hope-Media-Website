@@ -1,5 +1,6 @@
 import type { UserEntity } from "#shared/types/entities/user";
-import { SessionModel, UserModel } from "#server/repositories";
+import { SessionModel } from "#server/repositories";
+import UserEngine from "#server/services/entities/user";
 
 declare module "h3" {
   interface H3EventContext {
@@ -8,7 +9,7 @@ declare module "h3" {
 }
 
 export default defineEventHandler(async (event) => {
-  const token = getCookie(event, "auth_token");
+  const token = getCookie(event, UserEngine.AUTH_COOKIE_NAME);
 
   if (!token) {
     event.context.user = null;
