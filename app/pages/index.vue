@@ -14,6 +14,10 @@ watch(video, (element) => {
 }, { immediate: true });
 
 const { style } = useParallax(0.55);
+
+const articleStore = usePublicArticleStore();
+const { latest: latestArticles } = storeToRefs(articleStore);
+articleStore.load();
 </script>
 
 <template>
@@ -143,8 +147,11 @@ const { style } = useParallax(0.55);
         </header>
 
         <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
-          <ArticleCard />
-          <ArticleCard />
+          <ArticleCard
+            v-for="article in latestArticles"
+            :key="article.id"
+            :article
+          />
         </div>
       </Wrapper>
     </section>

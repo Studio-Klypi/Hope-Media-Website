@@ -1,19 +1,25 @@
 <script setup lang="ts">
+import type { ArticleProps } from "~/components/admin/blog";
 
+defineProps<ArticleProps>();
 </script>
 
 <template>
-  <NuxtLinkLocale to="/blog">
-    <UiCard class="pt-0 flex-1 overflow-hidden">
+  <NuxtLinkLocale :to="`/blog/${article.id}-${article.slug}`">
+    <UiCard
+      class="flex-1 overflow-hidden pt-0"
+    >
       <NuxtImg
-        class="aspect-video object-cover"
-        src="/images/home/job.png"
+        v-if="article.banner"
+        class="aspect-video w-full object-cover"
+        :src="article.banner"
       />
+      <span class="aspect-video w-full bg-primary/30" />
 
       <UiCardHeader>
-        <UiCardTitle>Titre de l'article</UiCardTitle>
+        <UiCardTitle>{{ article.title }}</UiCardTitle>
         <UiCardDescription class="line-clamp-4">
-          description sur maximum 4 lignes.
+          {{ article.excerpt }}
         </UiCardDescription>
       </UiCardHeader>
 

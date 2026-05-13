@@ -82,6 +82,7 @@ const props = defineProps<{
 
 .editor-renderer img {
   max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 0.5rem;
   margin: 1rem 0;

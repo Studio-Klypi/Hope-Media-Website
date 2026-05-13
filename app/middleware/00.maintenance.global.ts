@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware((to) => {
 
   if (UNTOUCH_PATHS.find(path => to.path.includes(path))) {
     if (active) return;
-    return navigateTo(useLocalePath()("/"));
+    if (to.path.includes("/maintenance")) return navigateTo(useLocalePath()("/"));
   }
   if (!active) return;
 
