@@ -1,0 +1,14 @@
+Bonjour {{firstName}},
+
+Nous avons bien reçu votre message concernant "{{subject}}" et nous vous en remercions.
+Notre équipe reviendra vers vous dans les meilleurs délais.
+
+---
+Récapitulatif de votre message :
+
+{{message}}
+---
+
+Si vous n'êtes pas à l'origine de ce message, vous pouvez ignorer cet e-mail.
+
+© Hope Media — Tous droits réservés

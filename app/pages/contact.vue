@@ -9,7 +9,7 @@ import { NAME_REGEX, PHONE_REGEX } from "#shared/constants/regex";
 import { MESSAGE_LENGTH, SUBJECT_LENGTH } from "#shared/constants/lengths";
 import type { SendPayload } from "~/types/states/contact";
 
-const store = useContactStore();
+const store = usePublicContactStore();
 const { loading } = storeToRefs(store);
 
 const form = useForm({
@@ -24,12 +24,12 @@ const form = useForm({
   })),
 });
 const valid = useFormValidation(form);
-const submit = form.handleSubmit((values) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+const submit = form.handleSubmit(async (values) => {
   const payload = values as any;
   delete payload.accept;
 
-  store.sendMessage(payload as SendPayload);
+  await store.sendMessage(payload as SendPayload);
+  form.resetForm();
 });
 </script>
 
@@ -150,9 +150,9 @@ const submit = form.handleSubmit((values) => {
                   {{ $t("contact.form.fields.message") }}
                 </UiFormLabel>
                 <UiFormControl>
-                  <UiTextarea
+                  <UiEditor
                     v-bind="componentField"
-                    class="min-h-32 resize-none"
+                    variant="simplified"
                   />
                 </UiFormControl>
               </UiFormItem>

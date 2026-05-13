@@ -4,10 +4,10 @@ interface Link {
 }
 
 export const links: Link[] = [
-  {
+  /* {
     label: "gallery",
     to: "/gallery",
-  },
+  }, */
   {
     label: "blog",
     to: "/blog",

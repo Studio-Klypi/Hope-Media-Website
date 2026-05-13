@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxt/image",
     "@pinia/nuxt",
+    "@nuxtjs/mdc",
   ],
   devtools: { enabled: true },
   app: {
@@ -37,6 +38,20 @@ export default defineNuxtConfig({
     fallback: "light",
   },
   runtimeConfig: {
+    mail: {
+      host: "",
+      port: "",
+      secure: "",
+      user: "",
+      pass: "",
+      from: {
+        name: "",
+        address: "",
+      },
+      reply: {
+        to: "",
+      },
+    },
     public: {
       app: {
         maintenance: "",
@@ -46,6 +61,9 @@ export default defineNuxtConfig({
         instagram: "",
       },
     },
+  },
+  routeRules: {
+    "/admin/**": { ssr: false },
   },
   compatibilityDate: "2025-07-15",
   postcss: {

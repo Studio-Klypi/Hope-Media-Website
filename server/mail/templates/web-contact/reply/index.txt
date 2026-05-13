@@ -1,0 +1,18 @@
+Bonjour {{firstName}},
+
+Nous avons répondu à votre message concernant "{{subject}}".
+
+---
+Notre réponse :
+
+{{reply}}
+
+---
+Votre message initial :
+
+{{originalMessage}}
+---
+
+Cet e-mail est une réponse à votre prise de contact avec Hope Media.
+
+© Hope Media — Tous droits réservés
