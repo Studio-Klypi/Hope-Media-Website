@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Star, ChevronDown, Check, X } from "@lucide/vue";
+import { ChevronDown, Check, X } from "@lucide/vue";
 import type { TestimonialProps } from "~/components/admin/testimonials";
 import Ranking from "~/components/display/Ranking.vue";
 

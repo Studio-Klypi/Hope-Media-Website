@@ -1,6 +1,5 @@
 import type { Testimonial } from "#shared/types/entities/testimonial";
 import type { ColumnDef } from "@tanstack/vue-table";
-import { Star } from "@lucide/vue";
 import TestimonialActions from "~/components/admin/testimonials/testimonial/TestimonialActions.vue";
 import TestimonialStatusBadge from "~/components/admin/testimonials/testimonial/TestimonialStatusBadge.vue";
 import Ranking from "~/components/display/Ranking.vue";

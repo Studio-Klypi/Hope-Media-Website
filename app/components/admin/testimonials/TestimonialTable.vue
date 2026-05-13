@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { columns } from "~/components/admin/testimonials/index";
-import type { Testimonial } from "#shared/types/entities/testimonial";
 import TestimonialDetails from "~/components/admin/testimonials/testimonial/TestimonialDetails.vue";
 
 const { testimonials } = storeToRefs(useTestimonialStore());
